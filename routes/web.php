@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CategorySkillController;
+use App\Http\Controllers\QualificationController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TypeQualificationController;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +64,19 @@ Route::controller(TypeQualificationController::class)->group(function () {
     Route::prefix('type-qualification')->group(function () {
         // name for route
         Route::name('typeQualification.')->group(function () {
+
+            Route::get('/', 'index')->name('index');
+
+        });
+    });
+});
+
+
+Route::controller(QualificationController::class)->group(function () {
+    // prefix name for url
+    Route::prefix('qualification')->group(function () {
+        // name for route
+        Route::name('qualification.')->group(function () {
 
             Route::get('/', 'index')->name('index');
 

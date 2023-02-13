@@ -15,7 +15,20 @@ return new class extends Migration
     {
         Schema::create('qualifications', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 55);
+
+            $table->string('company_or_institue', 55);
+            $table->string('location', 55);
+
+            $table->date('start_date');
+            $table->date('end_date');
+
+            $table->longText('description')->nullable();
+
+            $table->foreignId('type_qualification_id')->constrained('type_qualifications');
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

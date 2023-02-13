@@ -56,7 +56,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         {{-- <h6 class="collapse-header">Custom Utilities:</h6> --}}
-                        <a class="collapse-item" href="{{ route('skill.index') }}">qualification</a>
+                        <a class="collapse-item" href="{{ route('qualification.index') }}">qualification</a>
                         <a class="collapse-item" href="{{ route('typeQualification.index') }}">type</a>
                     </div>
                 </div>
