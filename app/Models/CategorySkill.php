@@ -14,7 +14,7 @@ class CategorySkill extends Model
     public $timestamps = true;
     protected $primaryKey = 'id';
     protected $fillable = [
-        'category',
+        'name',
         'experience',
         'icone',
     ];

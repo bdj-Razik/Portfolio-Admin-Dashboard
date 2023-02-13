@@ -1,23 +1,26 @@
 <?php
 
-namespace App\Http\Livewire\CategorySkill;
+namespace App\Http\Livewire\Skill;
 
 use App\Models\CategorySkill;
+use App\Models\Skill;
 use Illuminate\Support\Facades\Config;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
-class CategorySkillComponent extends Component
+class SkillComponent extends Component
 {
+
     use LivewireAlert;
 
-    public $categoryID, $name, $experience;
+    public $skillID, $name, $category, $level = 50;
 
     protected function rules()
     {
         return [
-            'name' => 'required|string|max:55|unique:category_skills,name,' . $this->categoryID,
-            'experience' => 'required|integer',
+            'name' => 'required|string|max:55|unique:skills,name,' . $this->skillID,
+            'category' => 'required|integer|exists:category_skills,id',
+            'level' => 'required|integer',
         ];
     }
 
@@ -30,9 +33,10 @@ class CategorySkillComponent extends Component
 
     public function resetInputs()
     {
-        $this->categoryID = '';
+        $this->skillID = '';
         $this->name = '';
-        $this->experience = '';
+        $this->category = '';
+        $this->level = 50;
 
     }
 
@@ -47,12 +51,13 @@ class CategorySkillComponent extends Component
 
         $this->validate();
 
-        $categorySkill = CategorySkill::create([
+        $skill = Skill::create([
             'name' => $this->name,
-            'experience' => $this->experience,
+            'level' => $this->level,
+            'skill_category_id' => $this->category,
         ]);
 
-        if ($categorySkill) {
+        if ($skill) {
 
             $this->alert('success', Config::get('custom.AlertMessage.success-add'));
             $this->dispatchBrowserEvent('closeModal');
@@ -71,11 +76,12 @@ class CategorySkillComponent extends Component
 
         $this->validate();
 
-        $category = CategorySkill::find($this->categoryID);
-        $category->name = $this->name;
-        $category->experience = $this->experience;
+        $skill =  Skill::find($this->skillID);
+        $skill->name = $this->name;
+        $skill->level = $this->level;
+        $skill->skill_category_id = $this->category;
 
-        if ($category->update()) {
+        if ($skill->update()) {
 
             $this->alert('success', Config::get('custom.AlertMessage.success-update'));
             $this->dispatchBrowserEvent('closeModal');
@@ -89,12 +95,13 @@ class CategorySkillComponent extends Component
 
     }
 
+
     public function destroy()
     {
 
         $this->validate();
 
-        if (CategorySkill::destroy($this->categoryID)) {
+        if (Skill::destroy($this->skillID)) {
 
             $this->alert('success', Config::get('custom.AlertMessage.success-destroy'));
             $this->dispatchBrowserEvent('closeModal');
@@ -107,20 +114,25 @@ class CategorySkillComponent extends Component
 
     }
 
+
+
     public function getData($categoryID)
     {
 
-        $category = CategorySkill::find($categoryID);
+        $skill = Skill::find($categoryID);
 
-        $this->categoryID = $category->id;
-        $this->name = $category->name;
-        $this->experience = $category->experience;
+        $this->skillID = $skill->id;
+        $this->name = $skill->name;
+        $this->level = $skill->level;
+        $this->category = $skill->skill_category_id;
 
     }
 
     public function render()
     {
-        $categories = CategorySkill::all();
-        return view('livewire.category-skill.category-skill-component', ['categories' => $categories]);
+        $skills = Skill::all();
+        $categories = CategorySkill::select('id', 'name')->get();
+
+        return view('livewire.skill.skill-component', ['skills' => $skills, 'categories' => $categories]);
     }
 }

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('category_skills', function (Blueprint $table) {
             $table->id();
-            $table->string('category', 55)->unique();
+            $table->string('name', 55)->unique();
             $table->integer('experience');
             $table->string('icone', 55)->nullable();
             $table->timestamps();

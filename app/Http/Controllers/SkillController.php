@@ -15,6 +15,7 @@ class SkillController extends Controller
     public function index()
     {
         //
+        return view('admin-panel.skill.index');
     }
 
     /**

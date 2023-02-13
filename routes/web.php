@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CategorySkillController;
+use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,19 @@ Route::controller(CategorySkillController::class)->group(function () {
     Route::prefix('category-skill')->group(function () {
         // name for route
         Route::name('category-skill.')->group(function () {
+
+            Route::get('/', 'index')->name('index');
+
+        });
+    });
+});
+
+
+Route::controller(SkillController::class)->group(function () {
+    // prefix name for url
+    Route::prefix('skill')->group(function () {
+        // name for route
+        Route::name('skill.')->group(function () {
 
             Route::get('/', 'index')->name('index');
 

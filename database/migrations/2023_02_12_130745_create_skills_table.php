@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
 
-            $table->string('skill', 55);
+            $table->string('name', 55);
             $table->integer('level');
             $table->foreignId('skill_category_id')->constrained('category_skills');
             $table->timestamps();
