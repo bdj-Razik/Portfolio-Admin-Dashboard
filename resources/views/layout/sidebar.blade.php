@@ -12,7 +12,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
+
             <li class="nav-item active">
                 <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -20,21 +20,21 @@
             </li>
 
 
-            <!-- Nav Item - Dashboard -->
+
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('abouts.index') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>About Us</span></a>
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#skill"
+                    aria-expanded="true" aria-controls="skill">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Skill</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="skill" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         {{-- <h6 class="collapse-header">Custom Utilities:</h6> --}}
@@ -46,6 +46,21 @@
 
 
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#qualification"
+                    aria-expanded="true" aria-controls="qualification">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Qualification</span>
+                </a>
+                <div id="qualification" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        {{-- <h6 class="collapse-header">Custom Utilities:</h6> --}}
+                        <a class="collapse-item" href="{{ route('skill.index') }}">qualification</a>
+                        <a class="collapse-item" href="{{ route('typeQualification.index') }}">type</a>
+                    </div>
+                </div>
+            </li>
 
 
             <!-- Divider -->

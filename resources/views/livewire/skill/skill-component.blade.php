@@ -17,7 +17,7 @@
                     <th scope="col">Skill</th>
                     <th scope="col">Level</th>
                     <th scope="col">Category</th>
-                    <th scope="col">Action</th>
+                    <th scope="col" style="width:10%">Action</th>
                 </tr>
             </thead>
             <tbody>

@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col-12 text-right my-2">
-            <x-button-modal.add nameModal='add-category-skill' />
+            <x-button-modal.add nameModal='add-type-qualification' />
         </div>
     </div>
 
@@ -14,25 +14,22 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Experience</th>
-                    {{-- <th scope="col">Icone</th> --}}
+                    <th scope="col">Type</th>
                     <th scope="col" style="width:10%">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($categories as $row)
+                @foreach ($types as $row)
                     <tr>
                         <th>{{ $loop->iteration }}</th>
                         <td>{{ $row->name }}</td>
-                        <td>{{ $row->experience }}</td>
 
                         <td>
                             <x-button-modal.update-action objectID='{{ $row->id }}'
-                                nameModal='update-category-skill' />
+                                nameModal='update-type-qualification' />
                             &nbsp;
                             <x-button-modal.delete-action objectID='{{ $row->id }}'
-                                nameModal='destroy-category-skill' />
+                                nameModal='destroy-type-qualification' />
 
                         </td>
                     </tr>
@@ -43,5 +40,5 @@
         </table>
     </div>
 
-    @include('admin-panel.categoy-skill.modal')
+    @include('admin-panel.type-qualification.modal')
 </div>
