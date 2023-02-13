@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CategorySkillController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\QualificationController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TypeQualificationController;
 use Illuminate\Support\Facades\Route;
@@ -77,6 +79,33 @@ Route::controller(QualificationController::class)->group(function () {
     Route::prefix('qualification')->group(function () {
         // name for route
         Route::name('qualification.')->group(function () {
+
+            Route::get('/', 'index')->name('index');
+
+        });
+    });
+});
+
+
+Route::controller(ServiceController::class)->group(function () {
+    // prefix name for url
+    Route::prefix('service')->group(function () {
+        // name for route
+        Route::name('service.')->group(function () {
+
+            Route::get('/', 'index')->name('index');
+
+        });
+    });
+});
+
+
+
+Route::controller(PortfolioController::class)->group(function () {
+    // prefix name for url
+    Route::prefix('portfolio')->group(function () {
+        // name for route
+        Route::name('portfolio.')->group(function () {
 
             Route::get('/', 'index')->name('index');
 

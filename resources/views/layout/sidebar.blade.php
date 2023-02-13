@@ -34,8 +34,7 @@
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Skill</span>
                 </a>
-                <div id="skill" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="skill" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         {{-- <h6 class="collapse-header">Custom Utilities:</h6> --}}
                         <a class="collapse-item" href="{{ route('skill.index') }}">skills</a>
@@ -60,6 +59,20 @@
                         <a class="collapse-item" href="{{ route('typeQualification.index') }}">type</a>
                     </div>
                 </div>
+            </li>
+
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('service.index') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Service</span></a>
+            </li>
+
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('portfolio.index') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Portfolio</span></a>
             </li>
 
 
