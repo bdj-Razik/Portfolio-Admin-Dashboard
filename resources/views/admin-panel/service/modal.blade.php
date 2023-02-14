@@ -14,7 +14,7 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="title" class="form-label">Title</label>
+                            <label for="title" class="form-label">Title<span class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('title')  is-invalid  @enderror"
                                 name="title" wire:model='title' autocomplete="off" required>
                             @error('title')
@@ -27,7 +27,7 @@
 
                         <div class="col-12 mb-3">
 
-                            <label for="description">Description</label>
+                            <label for="description">Description<span class="text-danger">&nbsp;*</span></label>
                             <textarea class="form-control  @error('experience')  is-invalid  @enderror" rows="5" name="description"
                                 wire:model='description' autocomplete="off" aria-describedby="basic-addon1" required></textarea>
                             @error('description')
@@ -97,7 +97,7 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="title" class="form-label">Title</label>
+                            <label for="title" class="form-label">Title<span class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('title')  is-invalid  @enderror"
                                 name="title" wire:model='title' autocomplete="off" required>
                             @error('title')
@@ -110,7 +110,7 @@
 
                         <div class="col-12 mb-3">
 
-                            <label for="description">Description</label>
+                            <label for="description">Description<span class="text-danger">&nbsp;*</span></label>
                             <textarea class="form-control  @error('experience')  is-invalid  @enderror" rows="5" name="description"
                                 wire:model='description' autocomplete="off" aria-describedby="basic-addon1" required></textarea>
                             @error('description')

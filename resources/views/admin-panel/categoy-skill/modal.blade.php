@@ -14,9 +14,10 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="name" class="form-label">Category</label>
+                            <label for="name" class="form-label">Category<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('name')  is-invalid  @enderror"
-                                id="name" name="name" wire:model='name' autocomplete="off" required>
+                                name="name" wire:model='name' autocomplete="off" required>
                             @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -26,10 +27,10 @@
 
 
                         <div class="col-12 mb-3">
-                            <label for="basic-url">Experience</label>
+                            <label for="basic-url">Experience<span class="text-danger">&nbsp;*</span></label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control @error('experience')  is-invalid  @enderror"
-                                    id="experience" name="experience" wire:model='experience' autocomplete="off"
+                                    name="experience" wire:model='experience' autocomplete="off"
                                     aria-describedby="basic-addon1" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text">years</span>
@@ -62,7 +63,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Update category skill</h5>
+                <h5 class="modal-title">Update category skill<span class="text-danger">&nbsp;*</span></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" wire:click='close'>
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -76,7 +77,7 @@
                         <div class="col-12 mb-3">
                             <label for="name" class="form-label">Category</label>
                             <input type="text" class="form-control @error('name')  is-invalid  @enderror"
-                                id="name" name="name" wire:model='name' autocomplete="off" required>
+                                name="name" wire:model='name' autocomplete="off" required>
                             @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -86,10 +87,10 @@
 
 
                         <div class="col-12 mb-3">
-                            <label for="basic-url">Experience</label>
+                            <label for="basic-url">Experience<span class="text-danger">&nbsp;*</span></label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control @error('experience')  is-invalid  @enderror"
-                                    id="experience" name="experience" wire:model='experience' autocomplete="off"
+                                    name="experience" wire:model='experience' autocomplete="off"
                                     aria-describedby="basic-addon1" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text">years</span>
@@ -137,8 +138,7 @@
                         <div class="col-12 mb-3">
                             <label for="name" class="form-label">Category</label>
                             <input type="text" class="form-control @error('name')  is-invalid  @enderror"
-                                id="name" name="name" wire:model='name' autocomplete="off" required
-                                readonly>
+                                name="name" wire:model='name' autocomplete="off" required readonly>
                             @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -151,7 +151,7 @@
                             <label for="basic-url">Experience</label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control @error('experience')  is-invalid  @enderror"
-                                    id="experience" name="experience" wire:model='experience' autocomplete="off"
+                                    name="experience" wire:model='experience' autocomplete="off"
                                     aria-describedby="basic-addon1" required readonly>
                                 <div class="input-group-append">
                                     <span class="input-group-text">years</span>

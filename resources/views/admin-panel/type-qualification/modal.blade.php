@@ -14,9 +14,10 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="name" class="form-label">Type Qualification</label>
+                            <label for="name" class="form-label">Type Qualification<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('name')  is-invalid  @enderror"
-                                id="name" name="name" wire:model='name' autocomplete="off" required>
+                                name="name" wire:model='name' autocomplete="off" required>
                             @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -55,9 +56,10 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="name" class="form-label">Type Qualification</label>
+                            <label for="name" class="form-label">Type Qualification<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('name')  is-invalid  @enderror"
-                                id="name" name="name" wire:model='name' autocomplete="off" required>
+                                name="name" wire:model='name' autocomplete="off" required>
                             @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -97,8 +99,7 @@
                         <div class="col-12 mb-3">
                             <label for="name" class="form-label">Type Qualification</label>
                             <input type="text" class="form-control @error('name')  is-invalid  @enderror"
-                                id="name" name="name" wire:model='name' autocomplete="off" required
-                                readonly>
+                                name="name" wire:model='name' autocomplete="off" required readonly>
                             @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -126,4 +127,3 @@
         </div>
     </div>
 </div>
-

@@ -16,9 +16,10 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="name" class="form-label">Skill</label>
+                            <label for="name" class="form-label">Skill<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('name')  is-invalid  @enderror"
-                                id="name" name="name" wire:model='name' autocomplete="off" required>
+                                name="name" wire:model='name' autocomplete="off" required>
                             @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -29,9 +30,10 @@
 
 
                         <div class="col-12 mb-3">
-                            <label for="category" class="form-label">Category</label>
-                            <select class="form-control @error('category')  is-invalid  @enderror" id="category"
-                                name="category " wire:model='category' autocomplete="off" required>
+                            <label for="category" class="form-label">Category<span
+                                    class="text-danger">&nbsp;*</span></label>
+                            <select class="form-control @error('category')  is-invalid  @enderror" name="category "
+                                wire:model='category' autocomplete="off" required>
                                 <option value="">Chosse ..</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -46,8 +48,8 @@
 
 
 
-                        <div class="col-12 mb-3">
-                            <label for="level">Level <span id="rangeval">50 %</span></label>
+                        <div class="col-12 my-3">
+                            <label for="level">Level <span id="rangeval">50 %</span><span class="text-danger">&nbsp;*</span></label>
                             <input type="range" class="custom-range @error('level')  is-invalid  @enderror"
                                 min="10" max="90" step="10" id="level" name="level"
                                 wire:model.defer='level' required onInput="$('#rangeval').html($(this).val())">
@@ -90,9 +92,9 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="name" class="form-label">Skill</label>
+                            <label for="name" class="form-label">Skill<span class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('name')  is-invalid  @enderror"
-                                id="name" name="name" wire:model='name' autocomplete="off" required>
+                                  name="name" wire:model='name' autocomplete="off" required>
                             @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -103,8 +105,8 @@
 
 
                         <div class="col-12 mb-3">
-                            <label for="category" class="form-label">Category</label>
-                            <select class="form-control @error('category')  is-invalid  @enderror" id="category"
+                            <label for="category" class="form-label">Category<span class="text-danger">&nbsp;*</span></label>
+                            <select class="form-control @error('category')  is-invalid  @enderror"
                                 name="category " wire:model='category' autocomplete="off" required>
                                 <option value="">Chosse ..</option>
                                 @foreach ($categories as $category)
@@ -120,10 +122,10 @@
 
 
 
-                        <div class="col-12 mb-3">
-                            <label for="level">Level <span id="u-rangeval">50 %</span></label>
+                        <div class="col-12 my-3">
+                            <label for="level">Level <span id="u-rangeval">50 %</span><span class="text-danger">&nbsp;*</span></label>
                             <input type="range" class="custom-range @error('level')  is-invalid  @enderror"
-                                min="10" max="90" step="10" id="level" name="level"
+                                min="10" max="90" step="10"   name="level"
                                 wire:model.defer='level' required onInput="$('#u-rangeval').html($(this).val())">
                             @error('level')
                                 <div class="invalid-feedback">
@@ -165,7 +167,7 @@
                         <div class="col-12 mb-3">
                             <label for="name" class="form-label">Skill</label>
                             <input type="text" class="form-control @error('name')  is-invalid  @enderror"
-                                id="name" name="name" wire:model='name' autocomplete="off" required
+                                  name="name" wire:model='name' autocomplete="off" required
                                 readonly>
                             @error('name')
                                 <div class="invalid-feedback">
@@ -178,7 +180,7 @@
 
                         <div class="col-12 mb-3">
                             <label for="category" class="form-label">Category</label>
-                            <select class="form-control @error('category')  is-invalid  @enderror" id="category"
+                            <select class="form-control @error('category')  is-invalid  @enderror"
                                 name="category " wire:model='category' autocomplete="off" required disabled>
                                 <option value="">Chosse ..</option>
                                 @foreach ($categories as $category)
@@ -197,7 +199,7 @@
                         <div class="col-12 mb-3">
                             <label for="level">Level <span id="u-rangeval">{{ $level }} %</span></label>
                             <input type="range" class="custom-range @error('level')  is-invalid  @enderror"
-                                min="10" max="90" step="10" id="level" name="level"
+                                min="10" max="90" step="10"  name="level"
                                 wire:model.defer='level' required disabled>
                             @error('level')
                                 <div class="invalid-feedback">

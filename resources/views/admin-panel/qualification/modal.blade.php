@@ -14,9 +14,9 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="title" class="form-label">Title</label>
+                            <label for="title" class="form-label">Title<span class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('title')  is-invalid  @enderror"
-                                id="title" name="title" wire:model='title' autocomplete="off" required>
+                                 name="title" wire:model='title' autocomplete="off" required>
                             @error('title')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -27,10 +27,10 @@
 
 
                         <div class="col-12 mb-3">
-                            <label for="company_or_institue" class="form-label">Company / Institue</label>
+                            <label for="company_or_institue" class="form-label">Company / Institue<span class="text-danger">&nbsp;*</span></label>
                             <input type="text"
                                 class="form-control @error('company_or_institue')  is-invalid  @enderror"
-                                id="company_or_institue" name="company_or_institue" wire:model='company_or_institue'
+                                  name="company_or_institue" wire:model='company_or_institue'
                                 autocomplete="off" required>
                             @error('company_or_institue')
                                 <div class="invalid-feedback">
@@ -42,9 +42,9 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="location" class="form-label">Location</label>
+                            <label for="location" class="form-label">Location<span class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('location')  is-invalid  @enderror"
-                                id="location" name="location" wire:model='location' autocomplete="off" required>
+                                 name="location" wire:model='location' autocomplete="off" required>
                             @error('location')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -55,8 +55,8 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="type" class="form-label">Type</label>
-                            <select class="form-control @error('type')  is-invalid  @enderror" id="type"
+                            <label for="type" class="form-label">Type<span class="text-danger">&nbsp;*</span></label>
+                            <select class="form-control @error('type')  is-invalid  @enderror"
                                 name="type" wire:model='type' autocomplete="off" required>
                                 <option value="">Chosse ..</option>
                                 @foreach ($types as $type)
@@ -72,9 +72,9 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="start_date" class="form-label">Start Date</label>
+                            <label for="start_date" class="form-label">Start Date<span class="text-danger">&nbsp;*</span></label>
                             <input type="date" class="form-control @error('start_date')  is-invalid  @enderror"
-                                id="start_date" name="start_date" wire:model='start_date' autocomplete="off" required>
+                                 name="start_date" wire:model='start_date' autocomplete="off" required>
                             @error('start_date')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -85,9 +85,9 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="end_date" class="form-label">End Date</label>
+                            <label for="end_date" class="form-label">End Date<span class="text-danger">&nbsp;*</span></label>
                             <input type="date" class="form-control @error('end_date')  is-invalid  @enderror"
-                                id="end_date" name="end_date" wire:model='end_date' autocomplete="off" required>
+                                  name="end_date" wire:model='end_date' autocomplete="off" required>
                             @error('end_date')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -130,9 +130,9 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="title" class="form-label">Title</label>
+                            <label for="title" class="form-label">Title<span class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('title')  is-invalid  @enderror"
-                                id="title" name="title" wire:model='title' autocomplete="off" required>
+                                  name="title" wire:model='title' autocomplete="off" required>
                             @error('title')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -143,10 +143,10 @@
 
 
                         <div class="col-12 mb-3">
-                            <label for="company_or_institue" class="form-label">Company / Institue</label>
+                            <label for="company_or_institue" class="form-label">Company / Institue<span class="text-danger">&nbsp;*</span></label>
                             <input type="text"
                                 class="form-control @error('company_or_institue')  is-invalid  @enderror"
-                                id="company_or_institue" name="company_or_institue" wire:model='company_or_institue'
+                                  name="company_or_institue" wire:model='company_or_institue'
                                 autocomplete="off" required>
                             @error('company_or_institue')
                                 <div class="invalid-feedback">
@@ -158,9 +158,9 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="location" class="form-label">Location</label>
+                            <label for="location" class="form-label">Location<span class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('location')  is-invalid  @enderror"
-                                id="location" name="location" wire:model='location' autocomplete="off" required>
+                                 name="location" wire:model='location' autocomplete="off" required>
                             @error('location')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -171,8 +171,8 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="type" class="form-label">Type</label>
-                            <select class="form-control @error('type')  is-invalid  @enderror" id="type"
+                            <label for="type" class="form-label">Type<span class="text-danger">&nbsp;*</span></label>
+                            <select class="form-control @error('type')  is-invalid  @enderror"
                                 name="type" wire:model='type' autocomplete="off" required>
                                 <option value="">Chosse ..</option>
                                 @foreach ($types as $type)
@@ -188,9 +188,9 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="start_date" class="form-label">Start Date</label>
+                            <label for="start_date" class="form-label">Start Date<span class="text-danger">&nbsp;*</span></label>
                             <input type="date" class="form-control @error('start_date')  is-invalid  @enderror"
-                                id="start_date" name="start_date" wire:model='start_date' autocomplete="off"
+                                 name="start_date" wire:model='start_date' autocomplete="off"
                                 required>
                             @error('start_date')
                                 <div class="invalid-feedback">
@@ -202,9 +202,9 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="end_date" class="form-label">End Date</label>
+                            <label for="end_date" class="form-label">End Date<span class="text-danger">&nbsp;*</span></label>
                             <input type="date" class="form-control @error('end_date')  is-invalid  @enderror"
-                                id="end_date" name="end_date" wire:model='end_date' autocomplete="off" required>
+                                name="end_date" wire:model='end_date' autocomplete="off" required>
                             @error('end_date')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -247,7 +247,7 @@
                         <div class="col-12 mb-3">
                             <label for="title" class="form-label">Title</label>
                             <input type="text" class="form-control @error('title')  is-invalid  @enderror"
-                                id="title" name="title" wire:model='title' autocomplete="off" required readonly>
+                                  name="title" wire:model='title' autocomplete="off" required readonly>
                             @error('title')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -261,7 +261,7 @@
                             <label for="company_or_institue" class="form-label">Company / Institue</label>
                             <input type="text"
                                 class="form-control @error('company_or_institue')  is-invalid  @enderror"
-                                id="company_or_institue" name="company_or_institue" wire:model='company_or_institue'
+                                  name="company_or_institue" wire:model='company_or_institue'
                                 autocomplete="off" required readonly>
                             @error('company_or_institue')
                                 <div class="invalid-feedback">
@@ -275,7 +275,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="location" class="form-label">Location</label>
                             <input type="text" class="form-control @error('location')  is-invalid  @enderror"
-                                id="location" name="location" wire:model='location' autocomplete="off" required readonly>
+                                 name="location" wire:model='location' autocomplete="off" required readonly>
                             @error('location')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -287,7 +287,7 @@
 
                         <div class="col-md-6 mb-3">
                             <label for="type" class="form-label">Type</label>
-                            <select class="form-control @error('type')  is-invalid  @enderror" id="type"
+                            <select class="form-control @error('type')  is-invalid  @enderror"
                                 name="type" wire:model='type' autocomplete="off" required readonly>
                                 <option value="">Chosse ..</option>
                                 @foreach ($types as $type)
@@ -305,7 +305,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="start_date" class="form-label">Start Date</label>
                             <input type="date" class="form-control @error('start_date')  is-invalid  @enderror"
-                                id="start_date" name="start_date" wire:model='start_date' autocomplete="off"
+                                  name="start_date" wire:model='start_date' autocomplete="off"
                                 required readonly>
                             @error('start_date')
                                 <div class="invalid-feedback">
@@ -319,7 +319,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="end_date" class="form-label">End Date</label>
                             <input type="date" class="form-control @error('end_date')  is-invalid  @enderror"
-                                id="end_date" name="end_date" wire:model='end_date' autocomplete="off" required readonly>
+                                name="end_date" wire:model='end_date' autocomplete="off" required readonly>
                             @error('end_date')
                                 <div class="invalid-feedback">
                                     {{ $message }}

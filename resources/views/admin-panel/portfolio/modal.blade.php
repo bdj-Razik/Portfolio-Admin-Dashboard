@@ -14,7 +14,7 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="title" class="form-label">Title</label>
+                            <label for="title" class="form-label">Title<span class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('title')  is-invalid  @enderror"
                                 name="title" wire:model='title' autocomplete="off" required>
                             @error('title')
@@ -27,7 +27,7 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="client" class="form-label">client</label>
+                            <label for="client" class="form-label">client<span class="text-danger">&nbsp;*</span></label>
                             <select class="form-control @error('client')  is-invalid  @enderror" name="client "
                                 wire:model='client' autocomplete="off" required>
                                 <option value="">Chosse ..</option>
@@ -46,7 +46,7 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="link" class="form-label">Link</label>
+                            <label for="link" class="form-label">Link<span class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('link')  is-invalid  @enderror"
                                 name="link" wire:model='link' autocomplete="off" required>
                             @error('link')
@@ -59,7 +59,7 @@
 
 
                         <div class="col-12 mb-3">
-                            <label for="basic-url">Period</label>
+                            <label for="basic-url">Period<span class="text-danger">&nbsp;*</span></label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control @error('period')  is-invalid  @enderror"
                                     name="period" wire:model='period' autocomplete="off"
@@ -79,7 +79,7 @@
 
                         <div class="col-12 mb-3">
 
-                            <label for="description">Description</label>
+                            <label for="description">Description<span class="text-danger">&nbsp;*</span></label>
                             <textarea class="form-control  @error('experience')  is-invalid  @enderror" rows="5" name="description"
                                 wire:model='description' autocomplete="off" aria-describedby="basic-addon1" required></textarea>
                             @error('description')
@@ -149,7 +149,7 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="title" class="form-label">Title</label>
+                            <label for="title" class="form-label">Title<span class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('title')  is-invalid  @enderror"
                                 name="title" wire:model='title' autocomplete="off" required>
                             @error('title')
@@ -161,7 +161,7 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="client" class="form-label">client</label>
+                            <label for="client" class="form-label">client<span class="text-danger">&nbsp;*</span></label>
                             <select class="form-control @error('client')  is-invalid  @enderror" name="client "
                                 wire:model='client' autocomplete="off" required>
                                 <option value="">Chosse ..</option>
@@ -180,7 +180,7 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="link" class="form-label">Link</label>
+                            <label for="link" class="form-label">Link<span class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('link')  is-invalid  @enderror"
                                 name="link" wire:model='link' autocomplete="off" required>
                             @error('link')
@@ -193,7 +193,7 @@
 
 
                         <div class="col-12 mb-3">
-                            <label for="basic-url">Period</label>
+                            <label for="basic-url">Period<span class="text-danger">&nbsp;*</span></label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control @error('period')  is-invalid  @enderror"
                                     name="period" wire:model='period' autocomplete="off"
@@ -213,7 +213,7 @@
 
                         <div class="col-12 mb-3">
 
-                            <label for="description">Description</label>
+                            <label for="description">Description<span class="text-danger">&nbsp;*</span></label>
                             <textarea class="form-control  @error('experience')  is-invalid  @enderror" rows="5" name="description"
                                 wire:model='description' autocomplete="off" aria-describedby="basic-addon1" required></textarea>
                             @error('description')
