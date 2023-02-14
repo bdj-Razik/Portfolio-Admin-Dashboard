@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CategorySkillController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\QualificationController;
 use App\Http\Controllers\ServiceController;
@@ -73,7 +74,6 @@ Route::controller(TypeQualificationController::class)->group(function () {
     });
 });
 
-
 Route::controller(QualificationController::class)->group(function () {
     // prefix name for url
     Route::prefix('qualification')->group(function () {
@@ -85,7 +85,6 @@ Route::controller(QualificationController::class)->group(function () {
         });
     });
 });
-
 
 Route::controller(ServiceController::class)->group(function () {
     // prefix name for url
@@ -99,13 +98,23 @@ Route::controller(ServiceController::class)->group(function () {
     });
 });
 
-
-
 Route::controller(PortfolioController::class)->group(function () {
     // prefix name for url
     Route::prefix('portfolio')->group(function () {
         // name for route
         Route::name('portfolio.')->group(function () {
+
+            Route::get('/', 'index')->name('index');
+
+        });
+    });
+});
+
+Route::controller(ClientController::class)->group(function () {
+    // prefix name for url
+    Route::prefix('client')->group(function () {
+        // name for route
+        Route::name('client.')->group(function () {
 
             Route::get('/', 'index')->name('index');
 

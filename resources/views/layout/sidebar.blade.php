@@ -70,6 +70,15 @@
 
 
             <li class="nav-item active">
+                <a class="nav-link" href="{{ route('client.index') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Client</span></a>
+            </li>
+
+
+
+
+            <li class="nav-item active">
                 <a class="nav-link" href="{{ route('portfolio.index') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Portfolio</span></a>
