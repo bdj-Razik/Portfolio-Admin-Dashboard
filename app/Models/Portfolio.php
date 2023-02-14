@@ -16,9 +16,15 @@ class Portfolio extends Model
     protected $fillable = [
         'title',
         'period',
-        'client',
+        'client_id',
         'link',
         'description',
         'image',
     ];
+
+    public function client()
+    {
+
+        return $this->belongsTo(Client::class, 'client_id');
+    }
 }

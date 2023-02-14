@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Service;
 
+use App\Models\Client;
 use App\Models\Service;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
@@ -72,7 +73,7 @@ class ServiceComponent extends Component
 
                     DB::rollBack();
 
-                    $this->alert('warning', 'Modification non effectué');
+                    $this->alert('warning', Config::get('custom.AlertMessage.error-add'));
 
                     return;
                 }
@@ -120,7 +121,7 @@ class ServiceComponent extends Component
 
                     DB::rollBack();
 
-                    $this->alert('warning', 'Modification non effectué');
+                    $this->alert('warning', Config::get('custom.AlertMessage.error-update'));
 
                     return;
                 }
@@ -176,7 +177,7 @@ class ServiceComponent extends Component
 
     public function render()
     {
-        $services = Service::all();
-        return view('livewire.service.service-component', ['services' => $services]);
+
+        return view('livewire.service.service-component', ['services' => Service::all()]);
     }
 }

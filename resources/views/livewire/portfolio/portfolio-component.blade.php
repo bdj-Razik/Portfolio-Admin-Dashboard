@@ -28,7 +28,7 @@
                     <tr>
                         <th>{{ $loop->iteration }}</th>
                         <td>{{ $row->title }}</td>
-                        <td>{{ $row->client }}</td>
+                        <td>{{ $row->client->full_name }}</td>
                         <td>{{ $row->period }}</td>
                         <td>{{ $row->link }}</td>
                         {{-- <td>{{ $row->image }}</td> --}}

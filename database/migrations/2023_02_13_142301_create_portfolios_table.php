@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 55);
             $table->integer('period')->nullable();
-            $table->string('client', 55)->nullable();
+            $table->foreignId('client_id')->constrained('clients');
             $table->string('link', 255)->nullable();
             $table->longText('description')->nullable();
             $table->string('image', 55)->nullable();

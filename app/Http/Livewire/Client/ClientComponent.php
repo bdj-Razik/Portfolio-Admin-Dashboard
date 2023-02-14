@@ -4,15 +4,17 @@ namespace App\Http\Livewire\Client;
 
 use App\Models\Client;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class ClientComponent extends Component
 {
 
-    use LivewireAlert;
+    use LivewireAlert, WithFileUploads;
 
-    public $clientID, $full_name, $email, $phone, $period, $description;
+    public $clientID, $full_name, $email, $phone, $period, $description, $photo;
 
     protected function rules()
     {
@@ -20,6 +22,8 @@ class ClientComponent extends Component
             'full_name' => 'required|string|max:55|unique:clients,full_name,' . $this->clientID,
             'email' => 'required|email|unique:clients,email,' . $this->clientID,
             'phone' => 'required|numeric|unique:clients,email,' . $this->clientID,
+            'photo' => 'nullable|image|mimes:png,jpeg,jpg',
+
         ];
     }
 
@@ -36,6 +40,7 @@ class ClientComponent extends Component
         $this->full_name = '';
         $this->email = '';
         $this->phone = '';
+        $this->photo = '';
 
     }
 
@@ -50,19 +55,44 @@ class ClientComponent extends Component
 
         $this->validate();
 
-        $client = Client::create([
-            'full_name' => $this->full_name,
-            'email' => $this->email,
-            'phone' => $this->phone,
-        ]);
+        DB::beginTransaction();
 
-        if ($client) {
+        try {
+
+            $client = new Client();
+
+            $client->full_name = $this->full_name;
+            $client->email = $this->email;
+            $client->phone = $this->phone;
+
+            if ($this->photo) {
+
+                if ($this->photo->storeAs('img-client/', $this->photo->getClientOriginalName())) {
+
+                    $client->photo = $this->photo->getClientOriginalName();
+
+                } else {
+
+                    DB::rollBack();
+
+                    $this->alert('warning', Config::get('custom.AlertMessage.error-add'));
+
+                    return;
+                }
+
+            }
+
+            $client->save();
+
+            DB::commit();
 
             $this->alert('success', Config::get('custom.AlertMessage.success-add'));
             $this->dispatchBrowserEvent('closeModal');
             $this->resetInputs();
 
-        } else {
+        } catch (\Throwable$th) {
+
+            DB::rollBack();
 
             $this->alert('warning', Config::get('custom.AlertMessage.error-add'));
 
@@ -75,18 +105,43 @@ class ClientComponent extends Component
 
         $this->validate();
 
-        $client = Client::find($this->clientID);
-        $client->full_name = $this->full_name;
-        $client->email = $this->email;
-        $client->phone = $this->phone;
+        DB::beginTransaction();
 
-        if ($client->update()) {
+        try {
+
+            $client = Client::find($this->clientID);
+            $client->full_name = $this->full_name;
+            $client->email = $this->email;
+            $client->phone = $this->phone;
+
+            if ($this->photo) {
+
+                if ($this->photo->storeAs('img-client/', $this->photo->getClientOriginalName())) {
+
+                    $client->photo = $this->photo->getClientOriginalName();
+
+                } else {
+
+                    DB::rollBack();
+
+                    $this->alert('warning', Config::get('custom.AlertMessage.error-update'));
+
+                    return;
+                }
+
+            }
+
+            $client->update();
+
+            DB::commit();
 
             $this->alert('success', Config::get('custom.AlertMessage.success-update'));
             $this->dispatchBrowserEvent('closeModal');
             $this->resetInputs();
 
-        } else {
+        } catch (\Throwable$th) {
+
+            DB::rollBack();
 
             $this->alert('warning', Config::get('custom.AlertMessage.error-update'));
 

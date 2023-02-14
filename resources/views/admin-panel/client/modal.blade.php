@@ -50,6 +50,30 @@
                         </div>
 
 
+                        <div class="col-12 my-3">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="photo">Upload</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file"
+                                        class="custom-file-input @error('photo')  is-invalid  @enderror"
+                                        aria-describedby="photo" name="photo" wire:model='photo'>
+                                    <label class="custom-file-label" for="photo">Choose file (photo)</label>
+                                </div>
+                            </div>
+
+                            <x-layout.loader target='photo' />
+
+                            @error('photo')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+
+
                     </div>
                 </div>
 
@@ -115,6 +139,30 @@
                                 </div>
                             @enderror
                         </div>
+
+
+                        <div class="col-12 my-3">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="photo">Upload</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file"
+                                        class="custom-file-input @error('photo')  is-invalid  @enderror"
+                                        aria-describedby="photo" name="photo" wire:model='photo'>
+                                    <label class="custom-file-label" for="photo">Choose file (photo)</label>
+                                </div>
+                            </div>
+
+                            <x-layout.loader target='photo' />
+
+                            @error('photo')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
 
 
                     </div>

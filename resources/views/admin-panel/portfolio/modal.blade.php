@@ -25,16 +25,23 @@
                         </div>
 
 
+
                         <div class="col-md-6 mb-3">
-                            <label for="client" class="form-label">Client</label>
-                            <input type="text" class="form-control @error('client')  is-invalid  @enderror"
-                                name="client" wire:model='client' autocomplete="off" required>
+                            <label for="client" class="form-label">client</label>
+                            <select class="form-control @error('client')  is-invalid  @enderror" name="client "
+                                wire:model='client' autocomplete="off" required>
+                                <option value="">Chosse ..</option>
+                                @foreach ($clients as $row)
+                                    <option value="{{ $row->id }}">{{ $row->full_name }}</option>
+                                @endforeach
+                            </select>
                             @error('client')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
+
 
 
 
@@ -83,6 +90,31 @@
 
 
                         </div>
+
+
+
+                        <div class="col-12 my-3">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="image">Upload</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file"
+                                        class="custom-file-input @error('image')  is-invalid  @enderror"
+                                        aria-describedby="image" name="image" wire:model='image'>
+                                    <label class="custom-file-label" for="image">Choose file (Image)</label>
+                                </div>
+                            </div>
+
+                            <x-layout.loader target='image' />
+
+                            @error('image')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
 
 
 
@@ -129,15 +161,21 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="client" class="form-label">Client</label>
-                            <input type="text" class="form-control @error('client')  is-invalid  @enderror"
-                                name="client" wire:model='client' autocomplete="off" required>
+                            <label for="client" class="form-label">client</label>
+                            <select class="form-control @error('client')  is-invalid  @enderror" name="client "
+                                wire:model='client' autocomplete="off" required>
+                                <option value="">Chosse ..</option>
+                                @foreach ($clients as $row)
+                                    <option value="{{ $row->id }}">{{ $row->full_name }}</option>
+                                @endforeach
+                            </select>
                             @error('client')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
+
 
 
 
@@ -189,6 +227,30 @@
 
 
 
+                        <div class="col-12 my-3">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="image">Upload</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file"
+                                        class="custom-file-input @error('image')  is-invalid  @enderror"
+                                        aria-describedby="image" name="image" wire:model='image'>
+                                    <label class="custom-file-label" for="image">Choose file (Image)</label>
+                                </div>
+                            </div>
+
+                            <x-layout.loader target='image' />
+
+                            @error('image')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -230,21 +292,22 @@
                         </div>
 
 
-                        <div class="col-md-6 mb-3">
-                            <label for="client" class="form-label">Client</label>
-                            <input type="text" class="form-control @error('client')  is-invalid  @enderror"
-                                name="client" wire:model='client' autocomplete="off" required readonly>
+
+                        <div class="col-12 mb-3">
+                            <label for="client" class="form-label">client</label>
+                            <select class="form-control @error('client')  is-invalid  @enderror" name="client "
+                                wire:model='client' autocomplete="off" required readonly>
+                                <option value="">Chosse ..</option>
+                                @foreach ($clients as $row)
+                                    <option value="{{ $row->id }}">{{ $row->full_name }}</option>
+                                @endforeach
+                            </select>
                             @error('client')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
-
-
-
-
-
 
 
 
@@ -261,4 +324,3 @@
         </div>
     </div>
 </div>
-
