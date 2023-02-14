@@ -5,8 +5,10 @@ use App\Http\Controllers\CategorySkillController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactMeController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QualificationController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TypeQualificationController;
 use Illuminate\Support\Facades\Route;
@@ -49,7 +51,7 @@ Route::controller(AboutUsController::class)->group(function () {
 
 Route::controller(CategorySkillController::class)->group(function () {
     // prefix name for url
-    Route::prefix('category-skill')->group(function () {
+    Route::prefix('category-skills')->group(function () {
         // name for route
         Route::name('category-skill.')->group(function () {
 
@@ -61,7 +63,7 @@ Route::controller(CategorySkillController::class)->group(function () {
 
 Route::controller(SkillController::class)->group(function () {
     // prefix name for url
-    Route::prefix('skill')->group(function () {
+    Route::prefix('skills')->group(function () {
         // name for route
         Route::name('skill.')->group(function () {
 
@@ -73,7 +75,7 @@ Route::controller(SkillController::class)->group(function () {
 
 Route::controller(TypeQualificationController::class)->group(function () {
     // prefix name for url
-    Route::prefix('type-qualification')->group(function () {
+    Route::prefix('type-qualifications')->group(function () {
         // name for route
         Route::name('typeQualification.')->group(function () {
 
@@ -85,7 +87,7 @@ Route::controller(TypeQualificationController::class)->group(function () {
 
 Route::controller(QualificationController::class)->group(function () {
     // prefix name for url
-    Route::prefix('qualification')->group(function () {
+    Route::prefix('qualifications')->group(function () {
         // name for route
         Route::name('qualification.')->group(function () {
 
@@ -109,7 +111,7 @@ Route::controller(ServiceController::class)->group(function () {
 
 Route::controller(PortfolioController::class)->group(function () {
     // prefix name for url
-    Route::prefix('portfolio')->group(function () {
+    Route::prefix('portfolios')->group(function () {
         // name for route
         Route::name('portfolio.')->group(function () {
 
@@ -121,7 +123,7 @@ Route::controller(PortfolioController::class)->group(function () {
 
 Route::controller(ClientController::class)->group(function () {
     // prefix name for url
-    Route::prefix('client')->group(function () {
+    Route::prefix('clients')->group(function () {
         // name for route
         Route::name('client.')->group(function () {
 
@@ -134,9 +136,35 @@ Route::controller(ClientController::class)->group(function () {
 
 Route::controller(ContactMeController::class)->group(function () {
     // prefix name for url
-    Route::prefix('message')->group(function () {
+    Route::prefix('messages')->group(function () {
         // name for route
         Route::name('message.')->group(function () {
+
+            Route::get('/', 'index')->name('index');
+
+        });
+    });
+});
+
+
+Route::controller(ProfileController::class)->group(function () {
+    // prefix name for url
+    Route::prefix('profile')->group(function () {
+        // name for route
+        Route::name('profile.')->group(function () {
+
+            Route::get('/', 'index')->name('index');
+
+        });
+    });
+});
+
+
+Route::controller(SettingsController::class)->group(function () {
+    // prefix name for url
+    Route::prefix('settings')->group(function () {
+        // name for route
+        Route::name('settings.')->group(function () {
 
             Route::get('/', 'index')->name('index');
 
