@@ -89,9 +89,9 @@ Route::controller(QualificationController::class)->group(function () {
 
 Route::controller(ServiceController::class)->group(function () {
     // prefix name for url
-    Route::prefix('service')->group(function () {
+    Route::prefix('services')->group(function () {
         // name for route
-        Route::name('service.')->group(function () {
+        Route::name('services.')->group(function () {
 
             Route::get('/', 'index')->name('index');
 

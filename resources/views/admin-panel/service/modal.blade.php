@@ -9,7 +9,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form wire:submit.prevent='store'>
+            <form wire:submit.prevent='store' enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-row">
 
@@ -38,6 +38,33 @@
 
 
                         </div>
+
+
+
+                        <div class="col-12 my-3">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="image">Upload</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file"
+                                        class="custom-file-input @error('image')  is-invalid  @enderror"
+                                        aria-describedby="image" name="image" wire:model='image'>
+                                    <label class="custom-file-label" for="image">Choose file (Image)</label>
+                                </div>
+                            </div>
+
+                            <x-layout.loader target='image' />
+
+                            @error('image')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+
+
 
 
                     </div>
@@ -93,6 +120,31 @@
                             @enderror
 
                         </div>
+
+
+                        <div class="col-12 my-3">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="image">Upload</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file"
+                                        class="custom-file-input @error('image')  is-invalid  @enderror"
+                                        aria-describedby="image" name="image" wire:model='image'>
+                                    <label class="custom-file-label" for="image">Choose file (Image)</label>
+                                </div>
+                            </div>
+
+                            <x-layout.loader target='image' />
+
+                            @error('image')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+
 
 
                     </div>

@@ -1,6 +1,6 @@
 <div>
 
-    <x-layout.loader />
+    <x-layout.loader target='getData' />
 
 
     <div class="row">

@@ -3,12 +3,14 @@
 namespace App\Http\Livewire\AboutsUs;
 
 use App\Models\AboutUs;
+use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class AboutUsComponent extends Component
 {
-    use LivewireAlert;
+    use LivewireAlert, WithFileUploads;
 
     public $title, $first_name, $last_name, $email, $phone, $github, $linkedin, $twitter, $facebook, $adresse, $description, $cv;
 
@@ -22,16 +24,16 @@ class AboutUsComponent extends Component
         'email' => 'required|email',
         'phone' => 'required|numeric',
 
-        'github' => 'required|url|max:255',
-        'linkedin' => 'required|url|max:255',
+        'github' => 'nullable|url|max:255',
+        'linkedin' => 'nullable|url|max:255',
 
-        'twitter' => 'required|url|max:255',
-        'facebook' => 'required|url|max:255',
+        'twitter' => 'nullable|url|max:255',
+        'facebook' => 'nullable|url|max:255',
 
-        'adresse' => 'required|string|max:255',
-        'description' => 'required|string|max:255',
+        'adresse' => 'nullable|string|max:255',
+        'description' => 'nullable|string|max:255',
 
-        'cv' => 'nullable',
+        'cv' => 'nullable|file|mimes:pdf',
 
     ];
 
@@ -40,67 +42,90 @@ class AboutUsComponent extends Component
         $this->validateOnly($field);
     }
 
+    public function resetInput()
+    {
+
+        $this->cv = null;
+    }
+
     public function update()
     {
 
         $this->validate();
 
-        $aboutUs = AboutUs::first();
+        DB::beginTransaction();
 
-        if ($aboutUs) {
+        try {
 
-            $aboutUs->title = $this->title;
-
-            $aboutUs->first_name = $this->first_name;
-            $aboutUs->last_name = $this->last_name;
-            $aboutUs->email = $this->email;
-            $aboutUs->phone = $this->phone;
-
-            $aboutUs->github = $this->github;
-            $aboutUs->linkedin = $this->linkedin;
-
-            $aboutUs->twitter = $this->twitter;
-            $aboutUs->facebook = $this->facebook;
-
-            $aboutUs->adresse = $this->adresse;
-            $aboutUs->description = $this->description;
-
-            if ($aboutUs->update()) {
-
-                $this->alert('success', 'Modification effectué avec success');
-
-            } else {
-
-                $this->alert('warning', 'Modification non effectué');
-
-            }
-
-        } else {
-
-            $aboutUs = AboutUs::create([
-
-                'title' => $this->title,
-                'first_name' => $this->first_name,
-                'last_name' => $this->last_name,
-                'email' => $this->email,
-                'phone' => $this->phone,
-                'github' => $this->github,
-                'linkedin' => $this->linkedin,
-                'twitter' => $this->twitter,
-                'facebook' => $this->facebook,
-                'adresse' => $this->adresse,
-                'description' => $this->description,
-            ]);
+            $aboutUs = AboutUs::first();
 
             if ($aboutUs) {
 
-                $this->alert('success', 'Modification effectué avec success');
+                $aboutUs->title = $this->title;
+
+                $aboutUs->first_name = $this->first_name;
+                $aboutUs->last_name = $this->last_name;
+                $aboutUs->email = $this->email;
+                $aboutUs->phone = $this->phone;
+
+                $aboutUs->github = $this->github;
+                $aboutUs->linkedin = $this->linkedin;
+
+                $aboutUs->twitter = $this->twitter;
+                $aboutUs->facebook = $this->facebook;
+
+                $aboutUs->adresse = $this->adresse;
+                $aboutUs->description = $this->description;
+
+                if ($this->cv) {
+
+                    if ($this->cv->storeAs('cv/', $this->cv->getClientOriginalName())) {
+
+                        $aboutUs->cv = $this->cv->getClientOriginalName();
+
+                    } else {
+
+                        DB::rollBack();
+
+                        $this->alert('warning', 'Modification non effectué');
+
+                        return;
+                    }
+
+                }
+
+                $aboutUs->update();
 
             } else {
 
-                $this->alert('warning', 'Modification non effectué');
+                AboutUs::create([
+
+                    'title' => $this->title,
+                    'first_name' => $this->first_name,
+                    'last_name' => $this->last_name,
+                    'email' => $this->email,
+                    'phone' => $this->phone,
+                    'github' => $this->github,
+                    'linkedin' => $this->linkedin,
+                    'twitter' => $this->twitter,
+                    'facebook' => $this->facebook,
+                    'adresse' => $this->adresse,
+                    'description' => $this->description,
+                ]);
 
             }
+
+            DB::commit();
+
+            $this->alert('success', 'Modification effectué avec success');
+
+            $this->resetInput();
+
+        } catch (\Throwable$th) {
+
+            DB::rollBack();
+
+            $this->alert('warning', 'Modification non effectué');
 
         }
 

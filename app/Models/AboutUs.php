@@ -21,6 +21,8 @@ class AboutUs extends Model
         'linkedin',
         'twitter',
         'facebook',
+        'instagram',
+        'dribbble',
         'phone',
         'adresse',
         'description',

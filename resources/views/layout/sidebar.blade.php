@@ -72,16 +72,15 @@
 
 
             {{-- Service --}}
-            <li class="nav-item  {{ request()->path() == 'service' ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('service.index') }}">
+            <li class="nav-item  {{ request()->path() == 'services' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('services.index') }}">
                     <i class="fa-solid fa-people-carry-box"></i>
                     <span>Service</span></a>
             </li>
 
 
             {{-- Client --}}
-            <li
-                class="nav-item  {{ request()->path() == 'client'   ? 'active' : '' }}">
+            <li class="nav-item  {{ request()->path() == 'client' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('client.index') }}">
                     <i class="fa-solid fa-users"></i>
                     <span>Client</span></a>
@@ -90,8 +89,7 @@
 
 
             {{-- Portfolio --}}
-            <li
-                class="nav-item  {{ request()->path() == 'portfolio' ? 'active' : '' }}">
+            <li class="nav-item  {{ request()->path() == 'portfolio' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('portfolio.index') }}">
                     <i class="fa-brands fa-dropbox"></i>
                     <span>Portfolio</span></a>
@@ -100,8 +98,7 @@
 
 
             {{-- Message --}}
-            <li
-                class="nav-item  {{ request()->path() == 'message'   ? 'active' : '' }}">
+            <li class="nav-item  {{ request()->path() == 'message' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('message.index') }}">
                     <i class="fa-regular fa-envelope"></i>
                     <span>Message</span></a>

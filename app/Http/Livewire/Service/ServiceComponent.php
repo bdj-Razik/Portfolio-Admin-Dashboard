@@ -4,21 +4,25 @@ namespace App\Http\Livewire\Service;
 
 use App\Models\Service;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class ServiceComponent extends Component
 {
 
-    use LivewireAlert;
+    use LivewireAlert, WithFileUploads;
 
-    public $serviceID, $title, $description;
+    public $serviceID, $title, $description, $image;
 
     protected function rules()
     {
         return [
             'title' => 'required|string|max:55|unique:services,title,' . $this->serviceID,
             'description' => 'required|string',
+            'image' => 'nullable|image|mimes:png,jpeg,jpg',
+
         ];
     }
 
@@ -34,6 +38,7 @@ class ServiceComponent extends Component
         $this->serviceID = '';
         $this->title = '';
         $this->description = '';
+        $this->image = '';
 
     }
 
@@ -43,24 +48,48 @@ class ServiceComponent extends Component
 
     }
 
-
     public function store()
     {
 
         $this->validate();
 
-        $service = Service::create([
-            'title' => $this->title,
-            'description' => $this->description,
-        ]);
+        DB::beginTransaction();
 
-        if ($service) {
+        try {
+
+            $service = new Service();
+
+            $service->title = $this->title;
+            $service->description = $this->description;
+
+            if ($this->image) {
+
+                if ($this->image->storeAs('img-service/', $this->image->getClientOriginalName())) {
+
+                    $service->image = $this->image->getClientOriginalName();
+
+                } else {
+
+                    DB::rollBack();
+
+                    $this->alert('warning', 'Modification non effectué');
+
+                    return;
+                }
+
+            }
+
+            $service->save();
+
+            DB::commit();
 
             $this->alert('success', Config::get('custom.AlertMessage.success-add'));
             $this->dispatchBrowserEvent('closeModal');
             $this->resetInputs();
 
-        } else {
+        } catch (\Throwable$th) {
+
+            DB::rollBack();
 
             $this->alert('warning', Config::get('custom.AlertMessage.error-add'));
 
@@ -73,17 +102,42 @@ class ServiceComponent extends Component
 
         $this->validate();
 
-        $service = Service::find($this->serviceID);
-        $service->title = $this->title;
-        $service->description = $this->description;
+        DB::beginTransaction();
 
-        if ($service->update()) {
+        try {
+
+            $service = Service::find($this->serviceID);
+            $service->title = $this->title;
+            $service->description = $this->description;
+
+            if ($this->image) {
+
+                if ($this->image->storeAs('img-service/', $this->image->getClientOriginalName())) {
+
+                    $service->image = $this->image->getClientOriginalName();
+
+                } else {
+
+                    DB::rollBack();
+
+                    $this->alert('warning', 'Modification non effectué');
+
+                    return;
+                }
+
+            }
+
+            $service->update();
+
+            DB::commit();
 
             $this->alert('success', Config::get('custom.AlertMessage.success-update'));
             $this->dispatchBrowserEvent('closeModal');
             $this->resetInputs();
 
-        } else {
+        } catch (\Throwable$th) {
+
+            DB::rollBack();
 
             $this->alert('warning', Config::get('custom.AlertMessage.error-update'));
 
@@ -119,8 +173,6 @@ class ServiceComponent extends Component
         $this->description = $service->description;
 
     }
-
-
 
     public function render()
     {

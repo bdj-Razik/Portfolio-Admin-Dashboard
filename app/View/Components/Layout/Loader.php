@@ -11,9 +11,12 @@ class Loader extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $target;
+
+    public function __construct($target = null)
     {
         //
+        $this->target = $target;
     }
 
     /**

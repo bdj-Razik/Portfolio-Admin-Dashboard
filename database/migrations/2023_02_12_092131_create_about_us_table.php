@@ -27,10 +27,12 @@ return new class extends Migration
             $table->string('linkedin', 255)->nullable();
             $table->string('twitter', 255)->nullable();
             $table->string('facebook', 255)->nullable();
+            $table->string('instagram', 255)->nullable();
+            $table->string('dribbble', 255)->nullable();
 
             $table->string('adresse', 255)->nullable();
             $table->string('cv', 55)->nullable();
-            $table->string('description', 255);
+            $table->string('description', 255)->nullable();
             $table->timestamps();
         });
     }
