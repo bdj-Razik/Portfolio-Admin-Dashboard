@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('layout.head')
+@include('layouts.head')
 
 <body id="page-top">
 
     @yield('content')
 
-    @include('layout.footer')
+    @include('layouts.footer')
 
 
 </body>

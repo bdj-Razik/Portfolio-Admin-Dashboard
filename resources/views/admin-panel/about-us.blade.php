@@ -1,4 +1,4 @@
-@extends('layout.admin-panel')
+@extends('layouts.admin-panel')
 @section('title', 'About Us')
 @section('title-page', 'About Us')
 @section('admin-panel')

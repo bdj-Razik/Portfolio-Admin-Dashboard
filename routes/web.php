@@ -12,7 +12,6 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TypeQualificationController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,13 +23,6 @@ use Illuminate\Support\Facades\Storage;
 | contains the "web" middleware group. Now create something great!
 |
  */
-
- Route::get('/test', function () {
-
-    dd(Storage::url());
-});
-
-
 
 Route::get('/', function () {
     return view('layout.admin-panel');
@@ -133,7 +125,6 @@ Route::controller(ClientController::class)->group(function () {
     });
 });
 
-
 Route::controller(ContactMeController::class)->group(function () {
     // prefix name for url
     Route::prefix('messages')->group(function () {
@@ -145,7 +136,6 @@ Route::controller(ContactMeController::class)->group(function () {
         });
     });
 });
-
 
 Route::controller(ProfileController::class)->group(function () {
     // prefix name for url
@@ -159,7 +149,6 @@ Route::controller(ProfileController::class)->group(function () {
     });
 });
 
-
 Route::controller(SettingsController::class)->group(function () {
     // prefix name for url
     Route::prefix('settings')->group(function () {
@@ -170,4 +159,14 @@ Route::controller(SettingsController::class)->group(function () {
 
         });
     });
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 });
