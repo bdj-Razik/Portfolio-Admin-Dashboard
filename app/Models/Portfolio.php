@@ -19,6 +19,8 @@ class Portfolio extends Model
         'client_id',
         'link',
         'description',
+        'feedback',
+        'rating',
         'image',
     ];
 
