@@ -16,7 +16,6 @@
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
-                    {{-- <th scope="col">Image</th> --}}
                     <th scope="col" style="width:10%">Action</th>
                 </tr>
             </thead>
@@ -26,8 +25,9 @@
                         <th>{{ $loop->iteration }}</th>
                         <td>{{ $row->title }}</td>
                         <td>{{ $row->description }}</td>
-
                         <td>
+                            <x-button-modal.show-action objectID='{{ $row->id }}' nameModal='show-service' />
+                            &nbsp;
                             <x-button-modal.update-action objectID='{{ $row->id }}' nameModal='update-service' />
                             &nbsp;
                             <x-button-modal.delete-action objectID='{{ $row->id }}' nameModal='destroy-service' />
