@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CategorySkillController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ContactMeController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\QualificationController;
 use App\Http\Controllers\ServiceController;
@@ -115,6 +116,19 @@ Route::controller(ClientController::class)->group(function () {
     Route::prefix('client')->group(function () {
         // name for route
         Route::name('client.')->group(function () {
+
+            Route::get('/', 'index')->name('index');
+
+        });
+    });
+});
+
+
+Route::controller(ContactMeController::class)->group(function () {
+    // prefix name for url
+    Route::prefix('message')->group(function () {
+        // name for route
+        Route::name('message.')->group(function () {
 
             Route::get('/', 'index')->name('index');
 

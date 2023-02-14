@@ -13,28 +13,34 @@
             <hr class="sidebar-divider my-0">
 
 
-            <li class="nav-item active">
+            {{-- Dashboard --}}
+            <li class="nav-item  {{ request()->path() == 'dashboard' ? 'active' : '' }}">
                 <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fa-solid fa-layer-group"></i>
                     <span>Dashboard</span></a>
             </li>
 
 
-
-            <li class="nav-item active">
+            {{-- About Us --}}
+            <li class="nav-item {{ request()->path() == 'abouts-us' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('abouts.index') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fa-regular fa-address-card"></i>
                     <span>About Us</span></a>
             </li>
 
 
-            <li class="nav-item">
+
+            {{-- Skill --}}
+            <li
+                class="nav-item {{ request()->path() == 'skill' || request()->path() == 'category-skill' ? 'active' : '' }}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#skill"
                     aria-expanded="true" aria-controls="skill">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fa-solid fa-puzzle-piece"></i>
                     <span>Skill</span>
                 </a>
-                <div id="skill" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div id="skill"
+                    class="collapse {{ request()->path() == 'skill' || request()->path() == 'category-skill' ? 'show' : '' }}"
+                    aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         {{-- <h6 class="collapse-header">Custom Utilities:</h6> --}}
                         <a class="collapse-item" href="{{ route('skill.index') }}">skills</a>
@@ -44,15 +50,17 @@
             </li>
 
 
-
-            <li class="nav-item">
+            {{-- Qualification --}}
+            <li
+                class="nav-item {{ request()->path() == 'qualification' || request()->path() == 'type-qualification' ? 'active' : '' }}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#qualification"
                     aria-expanded="true" aria-controls="qualification">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fa-solid fa-sitemap"></i>
                     <span>Qualification</span>
                 </a>
-                <div id="qualification" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="qualification"
+                    class="collapse {{ request()->path() == 'qualification' || request()->path() == 'type-qualification' ? 'show' : '' }}"
+                    aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         {{-- <h6 class="collapse-header">Custom Utilities:</h6> --}}
                         <a class="collapse-item" href="{{ route('qualification.index') }}">qualification</a>
@@ -62,27 +70,43 @@
             </li>
 
 
-            <li class="nav-item active">
+
+            {{-- Service --}}
+            <li class="nav-item  {{ request()->path() == 'service' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('service.index') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fa-solid fa-people-carry-box"></i>
                     <span>Service</span></a>
             </li>
 
 
-            <li class="nav-item active">
+            {{-- Client --}}
+            <li
+                class="nav-item  {{ request()->path() == 'client'   ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('client.index') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fa-solid fa-users"></i>
                     <span>Client</span></a>
             </li>
 
 
 
-
-            <li class="nav-item active">
+            {{-- Portfolio --}}
+            <li
+                class="nav-item  {{ request()->path() == 'portfolio' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('portfolio.index') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fa-brands fa-dropbox"></i>
                     <span>Portfolio</span></a>
             </li>
+
+
+
+            {{-- Message --}}
+            <li
+                class="nav-item  {{ request()->path() == 'message'   ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('message.index') }}">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Message</span></a>
+            </li>
+
 
 
             <!-- Divider -->
