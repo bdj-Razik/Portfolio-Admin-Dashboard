@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contact_me', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 55);
-            $table->string('title', 155);
-            $table->string('email', 55);
-            $table->longText('description')->nullable();
+        Schema::create('notifications', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('type');
+            $table->morphs('notifiable');
+            $table->text('data');
+            $table->timestamp('read_at')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact_me');
+        Schema::dropIfExists('notifications');
     }
 };

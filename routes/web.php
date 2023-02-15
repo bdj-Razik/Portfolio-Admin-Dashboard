@@ -4,7 +4,6 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CategorySkillController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactMeController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QualificationController;
@@ -25,10 +24,14 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+Route::get('/test', function () {
+    // dd(Auth::user());
+
+});
+
 Route::get('/', function () {
     return view('layout.admin-panel');
 });
-
 
 // About us
 Route::controller(AboutUsController::class)->group(function () {
