@@ -34,7 +34,10 @@
                     </div>
 
 
-                    <div class="card mx-2">
+
+                    @yield('admin-panel')
+
+                    {{-- <div class="card mx-2">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
@@ -42,7 +45,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
 
 

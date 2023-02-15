@@ -15,7 +15,7 @@
 
             {{-- Dashboard --}}
             <li class="nav-item  {{ request()->path() == 'dashboard' ? 'active' : '' }}">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="fa-solid fa-layer-group"></i>
                     <span>Dashboard</span></a>
             </li>

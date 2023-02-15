@@ -11,12 +11,12 @@ class CategorySkillComponent extends Component
 {
     use LivewireAlert;
 
-    public $categoryID, $name, $experience;
+    public $categoryID, $category, $experience;
 
     protected function rules()
     {
         return [
-            'name' => 'required|string|max:55|unique:category_skills,name,' . $this->categoryID,
+            'category' => 'required|string|max:55|unique:category_skills,name,' . $this->categoryID,
             'experience' => 'required|integer',
         ];
     }
@@ -31,7 +31,7 @@ class CategorySkillComponent extends Component
     public function resetInputs()
     {
         $this->categoryID = '';
-        $this->name = '';
+        $this->category = '';
         $this->experience = '';
 
     }
@@ -48,7 +48,7 @@ class CategorySkillComponent extends Component
         $this->validate();
 
         $categorySkill = CategorySkill::create([
-            'name' => $this->name,
+            'name' => $this->category,
             'experience' => $this->experience,
         ]);
 
@@ -72,7 +72,7 @@ class CategorySkillComponent extends Component
         $this->validate();
 
         $category = CategorySkill::find($this->categoryID);
-        $category->name = $this->name;
+        $category->name = $this->category;
         $category->experience = $this->experience;
 
         if ($category->update()) {
@@ -113,7 +113,7 @@ class CategorySkillComponent extends Component
         $category = CategorySkill::find($categoryID);
 
         $this->categoryID = $category->id;
-        $this->name = $category->name;
+        $this->category = $category->name;
         $this->experience = $category->experience;
 
     }

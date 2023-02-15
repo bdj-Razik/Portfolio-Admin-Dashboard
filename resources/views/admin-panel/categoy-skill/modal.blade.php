@@ -13,18 +13,18 @@
                 <div class="modal-body">
                     <div class="form-row">
 
+
                         <div class="col-12 mb-3">
-                            <label for="name" class="form-label">Category<span
+                            <label for="category" class="form-label">Category<span
                                     class="text-danger">&nbsp;*</span></label>
-                            <input type="text" class="form-control @error('name')  is-invalid  @enderror"
-                                name="name" wire:model='name' autocomplete="off" required>
-                            @error('name')
+                            <input type="text" class="form-control @error('category')  is-invalid  @enderror"
+                                name="category" wire:model='category' autocomplete="off" required>
+                            @error('category')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
-
 
                         <div class="col-12 mb-3">
                             <label for="basic-url">Experience<span class="text-danger">&nbsp;*</span></label>
@@ -75,10 +75,10 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="name" class="form-label">Category</label>
-                            <input type="text" class="form-control @error('name')  is-invalid  @enderror"
-                                name="name" wire:model='name' autocomplete="off" required>
-                            @error('name')
+                            <label for="category" class="form-label">Category</label>
+                            <input type="text" class="form-control @error('category')  is-invalid  @enderror"
+                                name="category" wire:model='category' autocomplete="off" required>
+                            @error('category')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -136,10 +136,10 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="name" class="form-label">Category</label>
-                            <input type="text" class="form-control @error('name')  is-invalid  @enderror"
-                                name="name" wire:model='name' autocomplete="off" required readonly>
-                            @error('name')
+                            <label for="category" class="form-label">Category</label>
+                            <input type="text" class="form-control @error('category')  is-invalid  @enderror"
+                                name="category" wire:model='category' autocomplete="off" required readonly>
+                            @error('category')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>

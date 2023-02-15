@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CategorySkillController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactMeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QualificationController;
@@ -28,6 +29,7 @@ Route::get('/', function () {
     return view('layout.admin-panel');
 });
 
+
 // About us
 Route::controller(AboutUsController::class)->group(function () {
     // prefix name for url
@@ -41,6 +43,7 @@ Route::controller(AboutUsController::class)->group(function () {
     });
 });
 
+// Category Skill
 Route::controller(CategorySkillController::class)->group(function () {
     // prefix name for url
     Route::prefix('category-skills')->group(function () {
@@ -53,6 +56,7 @@ Route::controller(CategorySkillController::class)->group(function () {
     });
 });
 
+// Skill
 Route::controller(SkillController::class)->group(function () {
     // prefix name for url
     Route::prefix('skills')->group(function () {
@@ -65,6 +69,7 @@ Route::controller(SkillController::class)->group(function () {
     });
 });
 
+// TypeQualification
 Route::controller(TypeQualificationController::class)->group(function () {
     // prefix name for url
     Route::prefix('type-qualifications')->group(function () {
@@ -77,6 +82,7 @@ Route::controller(TypeQualificationController::class)->group(function () {
     });
 });
 
+// Qualification
 Route::controller(QualificationController::class)->group(function () {
     // prefix name for url
     Route::prefix('qualifications')->group(function () {
@@ -89,6 +95,7 @@ Route::controller(QualificationController::class)->group(function () {
     });
 });
 
+// Service
 Route::controller(ServiceController::class)->group(function () {
     // prefix name for url
     Route::prefix('services')->group(function () {
@@ -101,6 +108,7 @@ Route::controller(ServiceController::class)->group(function () {
     });
 });
 
+// Portfolio
 Route::controller(PortfolioController::class)->group(function () {
     // prefix name for url
     Route::prefix('portfolios')->group(function () {
@@ -113,6 +121,7 @@ Route::controller(PortfolioController::class)->group(function () {
     });
 });
 
+// Client
 Route::controller(ClientController::class)->group(function () {
     // prefix name for url
     Route::prefix('clients')->group(function () {
@@ -125,6 +134,7 @@ Route::controller(ClientController::class)->group(function () {
     });
 });
 
+// Message
 Route::controller(ContactMeController::class)->group(function () {
     // prefix name for url
     Route::prefix('messages')->group(function () {
@@ -137,6 +147,7 @@ Route::controller(ContactMeController::class)->group(function () {
     });
 });
 
+// Profile
 Route::controller(ProfileController::class)->group(function () {
     // prefix name for url
     Route::prefix('profile')->group(function () {
@@ -149,6 +160,7 @@ Route::controller(ProfileController::class)->group(function () {
     });
 });
 
+// Setting
 Route::controller(SettingsController::class)->group(function () {
     // prefix name for url
     Route::prefix('settings')->group(function () {
@@ -167,6 +179,6 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('admin-panel.dashboard.index');
     })->name('dashboard');
 });
