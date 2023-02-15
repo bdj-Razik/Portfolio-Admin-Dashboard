@@ -8,11 +8,16 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endpush
 
-    @livewire('profile.update-profile-information-form')
 
 
 
-
+    <div class="card mx-2">
+        <div class="card-body">
+            <div class="row">
+                @livewire('profile.update-profile-information-form')
+            </div>
+        </div>
+    </div>
 
 
 @endsection

@@ -37,15 +37,7 @@
 
                     @yield('admin-panel')
 
-                    {{-- <div class="card mx-2">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    @yield('admin-panel')
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
+
 
 
 
@@ -112,4 +104,7 @@
 
     <!-- Page level plugins -->
     <script src="{{ asset('vendors/vendor/chart.js/Chart.min.js') }}"></script>
+
+    <script src="{{asset('vendors/js/demo/chart-bar-demo.js')}}"></script>
+
 @endpush

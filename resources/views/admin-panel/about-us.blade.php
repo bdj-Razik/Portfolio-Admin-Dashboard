@@ -3,7 +3,14 @@
 @section('title-page', 'About Us')
 @section('admin-panel')
 
-    @livewire('abouts-us.about-us-component')
-
+    <div class="card mx-2">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    @livewire('abouts-us.about-us-component')
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection
