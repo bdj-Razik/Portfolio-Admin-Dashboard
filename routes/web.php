@@ -11,6 +11,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TypeQualificationController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/test', function () {
     // dd(Auth::user());
+
+    dd(Auth::user()->unreadNotifications()->latest()->limit(5)->first()->data['messagerie']['title']);
 
 });
 
