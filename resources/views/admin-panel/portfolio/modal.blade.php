@@ -1,7 +1,7 @@
 <!-- Modal  Add-->
 <div wire:ignore.self class="modal fade" id="add-portfolio" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Add portfolio</h5>
@@ -14,7 +14,8 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="title" class="form-label">Title<span class="text-danger">&nbsp;*</span></label>
+                            <label for="title" class="form-label">Title<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('title')  is-invalid  @enderror"
                                 name="title" wire:model='title' autocomplete="off" required>
                             @error('title')
@@ -27,7 +28,8 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="client" class="form-label">client<span class="text-danger">&nbsp;*</span></label>
+                            <label for="client" class="form-label">client<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <select class="form-control @error('client')  is-invalid  @enderror" name="client "
                                 wire:model='client' autocomplete="off" required>
                                 <option value="">Chosse ..</option>
@@ -46,7 +48,8 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="link" class="form-label">Link<span class="text-danger">&nbsp;*</span></label>
+                            <label for="link" class="form-label">Link<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('link')  is-invalid  @enderror"
                                 name="link" wire:model='link' autocomplete="off" required>
                             @error('link')
@@ -75,6 +78,21 @@
                             </div>
 
                         </div>
+
+                        <div class="col-12 mb-3">
+
+                            <label for="feedback">Feedback<span class="text-danger">&nbsp;*</span></label>
+                            <textarea class="form-control  @error('experience')  is-invalid  @enderror" rows="5" name="feedback"
+                                wire:model='feedback' autocomplete="off" aria-describedby="basic-addon1" required></textarea>
+                            @error('feedback')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+
+
+                        </div>
+
 
 
                         <div class="col-12 mb-3">
@@ -134,7 +152,7 @@
 
 {{-- Modal Update --}}
 <div wire:ignore.self class="modal fade" id="update-portfolio" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Update portfolio</h5>
@@ -149,7 +167,8 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="title" class="form-label">Title<span class="text-danger">&nbsp;*</span></label>
+                            <label for="title" class="form-label">Title<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('title')  is-invalid  @enderror"
                                 name="title" wire:model='title' autocomplete="off" required>
                             @error('title')
@@ -161,7 +180,8 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="client" class="form-label">client<span class="text-danger">&nbsp;*</span></label>
+                            <label for="client" class="form-label">client<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <select class="form-control @error('client')  is-invalid  @enderror" name="client "
                                 wire:model='client' autocomplete="off" required>
                                 <option value="">Chosse ..</option>
@@ -180,7 +200,8 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="link" class="form-label">Link<span class="text-danger">&nbsp;*</span></label>
+                            <label for="link" class="form-label">Link<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('link')  is-invalid  @enderror"
                                 name="link" wire:model='link' autocomplete="off" required>
                             @error('link')
@@ -209,6 +230,23 @@
                             </div>
 
                         </div>
+
+
+                        <div class="col-12 mb-3">
+
+                            <label for="feedback">Feedback<span class="text-danger">&nbsp;*</span></label>
+                            <textarea class="form-control  @error('experience')  is-invalid  @enderror" rows="5" name="feedback"
+                                wire:model='feedback' autocomplete="off" aria-describedby="basic-addon1" required></textarea>
+                            @error('feedback')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+
+
+                        </div>
+
+
 
 
                         <div class="col-12 mb-3">

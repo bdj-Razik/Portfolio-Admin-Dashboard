@@ -24,9 +24,7 @@
                         <td>{{ $row->title }}</td>
                         <td>{{ $row->email }}</td>
                         <td>
-                            <a class="text-primary">
-                                <i class="fa-regular fa-eye" title="Send"></i>
-                            </a>
+                            <x-button-modal.show-action objectID='{{ $row->id }}' nameModal='show-message' />
                             &nbsp;
                             <x-button-modal.delete-action objectID='{{ $row->id }}'
                                 nameModal='destroy-portfolio' />
@@ -39,5 +37,9 @@
         </table>
     </div>
 
-    @include('admin-panel.client.modal')
+    <div class="text-right my-2">
+        {{ $messages->links() }}
+    </div>
+
+    @include('admin-panel.messages.modal')
 </div>

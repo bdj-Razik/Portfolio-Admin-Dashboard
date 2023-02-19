@@ -8,6 +8,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('vendors/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -105,6 +106,14 @@
     <!-- Page level plugins -->
     <script src="{{ asset('vendors/vendor/chart.js/Chart.min.js') }}"></script>
 
-    <script src="{{asset('vendors/js/demo/chart-bar-demo.js')}}"></script>
+    <script src="{{ asset('vendors/js/demo/chart-bar-demo.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 250
+            });
+        });
+    </script>
 @endpush

@@ -34,8 +34,6 @@
                         {{-- <td>{{ $row->image }}</td> --}}
                         <td>{{ $row->description }}</td>
                         <td>
-                            <x-button-modal.show-action objectID='{{ $row->id }}' nameModal='show-portfolio' />
-                            &nbsp;
                             <x-button-modal.update-action objectID='{{ $row->id }}' nameModal='update-portfolio' />
                             &nbsp;
                             <x-button-modal.delete-action objectID='{{ $row->id }}'

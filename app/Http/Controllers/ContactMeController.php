@@ -45,9 +45,11 @@ class ContactMeController extends Controller
      * @param  \App\Models\ContactMe  $contactMe
      * @return \Illuminate\Http\Response
      */
-    public function show(ContactMe $contactMe)
+    public function show($messageID)
     {
         //
+        $message = ContactMe::find($messageID);
+        return view('admin-panel.messages.send')->with('message', $message);
     }
 
     /**
