@@ -12,7 +12,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TypeQualificationController;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/test', function () {
-    dd(Auth::user()->unreadNotifications()->whereJsonContains('data->messagerie->id', 30)->first()->markAsRead());
+    dd(DatabaseNotification::whereJsonContains('data->messagerie->id', 27)->first());
 });
 
 Route::get('/', function () {

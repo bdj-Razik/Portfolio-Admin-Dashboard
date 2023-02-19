@@ -27,7 +27,7 @@
                             <x-button-modal.show-action objectID='{{ $row->id }}' nameModal='show-message' />
                             &nbsp;
                             <x-button-modal.delete-action objectID='{{ $row->id }}'
-                                nameModal='destroy-portfolio' />
+                                nameModal='destroy-message' />
                         </td>
                     </tr>
                 @endforeach

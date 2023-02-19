@@ -3,13 +3,18 @@
 namespace App\Http\Livewire\Message;
 
 use App\Models\ContactMe;
+use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class MessageComponent extends Component
 {
-    use WithPagination;
+    use LivewireAlert, WithPagination;
+
     public $messageID = 0, $full_name, $title, $email, $description;
 
     public function resetInputs()
@@ -43,6 +48,31 @@ class MessageComponent extends Component
 
             $notification->markAsRead();
             $this->emit('refershUnreadNotifications');
+
+        }
+
+    }
+
+    public function destroy()
+    {
+
+        DB::beginTransaction();
+
+        try {
+
+            ContactMe::destroy($this->messageID);
+            DatabaseNotification::whereJsonContains('data->messagerie->id', $this->messageID)->delete();
+
+            DB::commit();
+            $this->alert('success', Config::get('custom.AlertMessage.success-destroy'));
+            $this->dispatchBrowserEvent('closeModal');
+            $this->resetInputs();
+
+        } catch (\Throwable$th) {
+
+            DB::rollBack();
+
+            $this->alert('warning', Config::get('custom.AlertMessage.error-destroy'));
 
         }
 
