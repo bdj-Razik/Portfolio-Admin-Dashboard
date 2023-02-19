@@ -15,7 +15,7 @@ class PortfolioComponent extends Component
 
     use LivewireAlert, WithFileUploads;
 
-    public $portfolioID, $title, $client, $link, $period, $feedback, $description, $image;
+    public $portfolioID, $title, $client, $link, $period, $price, $feedback, $description, $image;
 
     protected function rules()
     {
@@ -24,6 +24,7 @@ class PortfolioComponent extends Component
             'client' => 'required|integer|exists:clients,id',
             'link' => 'required|url',
             'period' => 'required|integer',
+            'price' => 'required|numeric',
             'feedback' => 'required|string',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:png,jpeg,jpg',
@@ -44,6 +45,7 @@ class PortfolioComponent extends Component
         $this->client = '';
         $this->link = '';
         $this->period = '';
+        $this->price = '';
         $this->feedback = '';
         $this->description = '';
         $this->image = '';
@@ -71,6 +73,7 @@ class PortfolioComponent extends Component
             $portfolio->client_id = $this->client;
             $portfolio->link = $this->link;
             $portfolio->period = $this->period;
+            $portfolio->price = $this->price;
             $portfolio->feedback = $this->feedback;
             $portfolio->description = $this->description;
 
@@ -123,6 +126,7 @@ class PortfolioComponent extends Component
             $portfolio->client_id = $this->client;
             $portfolio->link = $this->link;
             $portfolio->period = $this->period;
+            $portfolio->price = $this->price;
             $portfolio->feedback = $this->feedback;
             $portfolio->description = $this->description;
 

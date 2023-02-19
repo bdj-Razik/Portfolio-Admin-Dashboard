@@ -17,8 +17,8 @@
                     <th scope="col">Title</th>
                     <th scope="col">Client</th>
                     <th scope="col">Period</th>
+                    <th scope="col">Price</th>
                     <th scope="col">Link</th>
-                    {{-- <th scope="col">Image</th> --}}
                     <th scope="col">Description</th>
                     <th scope="col" style="width:10%">Action</th>
                 </tr>
@@ -30,6 +30,7 @@
                         <td>{{ $row->title }}</td>
                         <td>{{ $row->client->full_name }}</td>
                         <td>{{ $row->period }}</td>
+                        <td>{{ number_format($row->price)}} $</td>
                         <td>{{ $row->link }}</td>
                         {{-- <td>{{ $row->image }}</td> --}}
                         <td>{{ $row->description }}</td>

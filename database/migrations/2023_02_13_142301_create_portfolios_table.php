@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignId('client_id')->constrained('clients');
             $table->string('link', 255)->nullable();
             $table->longText('description')->nullable();
+            $table->double('price')->nullable();
             $table->longText('feedback')->nullable();
             $table->integer('rating')->nullable();
             $table->string('image', 55)->nullable();

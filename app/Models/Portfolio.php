@@ -20,6 +20,7 @@ class Portfolio extends Model
         'link',
         'description',
         'feedback',
+        'price',
         'rating',
         'image',
     ];

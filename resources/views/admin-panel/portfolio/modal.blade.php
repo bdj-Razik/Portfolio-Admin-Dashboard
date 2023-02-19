@@ -80,6 +80,21 @@
                         </div>
 
                         <div class="col-12 mb-3">
+                            <label for="price" class="form-label">Price<span
+                                    class="text-danger">&nbsp;*</span></label>
+                            <input type="text" class="form-control @error('price')  is-invalid  @enderror"
+                                name="price" wire:model='price' autocomplete="off" required>
+                            @error('price')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+
+
+
+                        <div class="col-12 mb-3">
 
                             <label for="feedback">Feedback<span class="text-danger">&nbsp;*</span></label>
                             <textarea class="form-control  @error('experience')  is-invalid  @enderror" rows="5" name="feedback"
@@ -230,6 +245,22 @@
                             </div>
 
                         </div>
+
+
+                        <div class="col-12 mb-3">
+                            <label for="price" class="form-label">Price<span
+                                    class="text-danger">&nbsp;*</span></label>
+                            <input type="text" class="form-control @error('price')  is-invalid  @enderror"
+                                name="price" wire:model='price' autocomplete="off" required>
+                            @error('price')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+
+
 
 
                         <div class="col-12 mb-3">

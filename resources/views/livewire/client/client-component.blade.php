@@ -14,6 +14,7 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Photo</th>
                     <th scope="col">Full Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Phone</th>
@@ -24,7 +25,11 @@
             <tbody>
                 @foreach ($clients as $row)
                     <tr>
+
                         <th>{{ $loop->iteration }}</th>
+                        <th> <img class="rounded-circle" alt="avatar1"
+                                src="{{ 'img-client/' . ($row->photo ? $row->photo : 'photo-client.png') }}"
+                                style="width: 30px" /></th>
                         <td>{{ $row->full_name }}</td>
                         <td>{{ $row->email }}</td>
                         <td>{{ $row->phone }}</td>

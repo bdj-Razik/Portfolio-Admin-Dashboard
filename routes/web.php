@@ -12,7 +12,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TypeQualificationController;
-use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +27,15 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/test', function () {
-    dd(DatabaseNotification::whereJsonContains('data->messagerie->id', 27)->first());
+    dd(DB::table('portfolios')->selectRaw("MONTHNAME(created_at) as month")
+
+            ->first()
+    );
+
+    // Portfolio::where(function (Builder $query) {
+    //     $query->selectRaw('MONTHNAME(created_at ) as month');
+    // })->get();
+
 });
 
 Route::get('/', function () {
