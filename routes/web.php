@@ -12,6 +12,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TypeQualificationController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/test', function () {
-    dd(route('message.show', ['contactMe' => 1]));
+    dd(Auth::user()->unreadNotifications()->whereJsonContains('data->messagerie->id', 30)->first()->markAsRead());
 });
 
 Route::get('/', function () {

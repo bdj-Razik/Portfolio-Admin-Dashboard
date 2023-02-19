@@ -18,8 +18,8 @@
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="title" class="form-label">Email</label>
-                        <input type="text" class="form-control" name="title" value='{{ $message->email }}'
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" value='{{ $message->email }}'
                             autocomplete="off" readonly>
                     </div>
 
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="row col-12 my-3">
-                    <button type="button" class="btn btn-primary btn-lg btn-block"><span><i
+                    <button type="submit" class="btn btn-primary btn-lg btn-block"><span><i
                                 class="fa-regular fa-envelope"></i></span>&ensp;Send</button>
                 </div>
 

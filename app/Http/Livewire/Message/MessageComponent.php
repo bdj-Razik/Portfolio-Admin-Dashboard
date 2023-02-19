@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Message;
 
 use App\Models\ContactMe;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -37,6 +38,13 @@ class MessageComponent extends Component
         $this->title = $message->title;
         $this->email = $message->email;
         $this->description = $message->description;
+
+        if ($notification = Auth::user()->unreadNotifications()->whereJsonContains('data->messagerie->id', $this->messageID)->first()) {
+
+            $notification->markAsRead();
+            $this->emit('refershUnreadNotifications');
+
+        }
 
     }
 

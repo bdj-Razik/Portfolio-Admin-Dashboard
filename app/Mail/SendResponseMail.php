@@ -45,7 +45,10 @@ class SendResponseMail extends Mailable
     public function content()
     {
         return new Content(
-            view:'view.name',
+            markdown:'admin-panel.mail.send-response',
+            with:[
+                'url' => 'https://laravel.com/docs/9.x/mail#writing-markdown-messages',
+            ]
         );
     }
 
