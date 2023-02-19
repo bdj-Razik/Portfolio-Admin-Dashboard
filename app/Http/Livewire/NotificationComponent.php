@@ -11,6 +11,7 @@ class NotificationComponent extends Component
     public $refershUnreadNotifications;
     protected $listeners = ['refershUnreadNotifications' => 'refershUnreadNotifications'];
 
+
     public function refershUnreadNotifications()
     {
         $this->refershUnreadNotifications = Auth::user()->unreadNotifications()->latest()->limit(5)->get();

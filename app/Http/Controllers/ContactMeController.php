@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ContactMe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ContactMeController extends Controller
 {
@@ -49,6 +50,13 @@ class ContactMeController extends Controller
     {
         //
         $message = ContactMe::find($messageID);
+
+        if ($notification = Auth::user()->unreadNotifications()->whereJsonContains('data->messagerie->id', $message->id)->first()) {
+
+            $notification->markAsRead();
+
+        }
+
         return view('admin-panel.messages.send')->with('message', $message);
     }
 

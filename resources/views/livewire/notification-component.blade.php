@@ -15,7 +15,10 @@
             </h6>
 
             @foreach ($unreadNotifications as $unreadNotification)
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center"
+                    href="{{ route('message.show', ['messageID' => $unreadNotification->data['messagerie']['id']]) }}"
+                    target="_blank">
+
                     <div class="font-weight-bold">
                         <div class="text-truncate">
                             {{ $unreadNotification->data['messagerie']['title'] }}</div>
