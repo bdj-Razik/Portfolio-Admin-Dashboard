@@ -9,6 +9,9 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('vendors/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+
+
+    @yield('head-page')
 @endpush
 
 @section('content')
@@ -103,11 +106,10 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('vendors/js/sb-admin-2.min.js') }}"></script>
 
-    <!-- Page level plugins -->
-    <script src="{{ asset('vendors/vendor/chart.js/Chart.min.js') }}"></script>
 
-    <script src="{{ asset('vendors/js/demo/chart-bar-demo.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
+    @yield('script-page')
 
     <script>
         $(document).ready(function() {

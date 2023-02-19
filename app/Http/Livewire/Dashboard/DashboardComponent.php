@@ -6,6 +6,8 @@ use App\Models\Client;
 use App\Models\Portfolio;
 use App\Models\Service;
 use App\Models\Skill;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class DashboardComponent extends Component
@@ -14,6 +16,20 @@ class DashboardComponent extends Component
     public function render()
     {
 
-        return view('livewire.dashboard.dashboard-component', ['skillsCount' => Skill::count() ,'clientsCount' => Client::count() , 'projectsCount' => Portfolio::count() , 'servicesCount' => Service::count() ]);
+        $priceMonthly = DB::table('portfolios')->selectRaw("MONTHNAME(created_at) as month , SUM(price) AS price")
+            ->groupByRaw('MONTH(created_at)')
+            ->whereBetween('created_at',
+                [Carbon::now()->subMonth(6), Carbon::now()]
+            )
+            ->first();
+
+        return view('livewire.dashboard.dashboard-component',
+            [
+                'priceMonthly' => $priceMonthly,
+                'skillsCount' => Skill::count(),
+                'clientsCount' => Client::count(),
+                'projectsCount' => Portfolio::count(),
+                'servicesCount' => Service::count(),
+            ]);
     }
 }
