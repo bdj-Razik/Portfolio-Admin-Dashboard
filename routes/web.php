@@ -12,7 +12,6 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TypeQualificationController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,17 +25,11 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/test', function () {
-
-    // ContactMe::all()->each(function($c){
-    //     Notification::send(Auth::user(), new MessagerieNotification($c));
-    // });
-});
-
 Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::post('/contactMe', [ContactMeController::class, 'store'])->name('contactMe');
 
 Route::middleware([
     'auth:sanctum',

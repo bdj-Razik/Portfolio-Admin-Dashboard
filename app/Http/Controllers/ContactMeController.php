@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactMe;
+use App\Notifications\MessagerieNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ContactMeController extends Controller
 {
@@ -38,6 +42,45 @@ class ContactMeController extends Controller
     public function store(Request $request)
     {
         //
+
+        $request->validate([
+            'title' => 'required|string|155',
+            'name' => 'required|string|55',
+            'email' => 'required|email',
+            'description' => 'required|string|255',
+
+        ]);
+
+        DB::beginTransaction();
+
+        try {
+
+            $contactMe = ContactMe::create([
+
+                'title' => $request->title,
+                'name' => $request->name,
+                'email' => $request->email,
+                'description' => $request->description,
+
+            ]);
+
+            Notification::send(Auth::user(), new MessagerieNotification($contactMe));
+
+            DB::commit();
+
+            Alert::toast('Email Send', 'success');
+
+            return back()->withInput();
+
+        } catch (\Throwable$th) {
+
+            DB::rollBack();
+
+            Alert::toast('Error Email Send', 'error');
+
+            return back();
+        }
+
     }
 
     /**
