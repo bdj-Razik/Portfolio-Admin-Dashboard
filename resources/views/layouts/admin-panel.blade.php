@@ -10,7 +10,6 @@
     <link href="{{ asset('vendors/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 
-
     @yield('head-page')
 @endpush
 
@@ -40,9 +39,6 @@
 
 
                     @yield('admin-panel')
-
-
-
 
 
                 </div>
@@ -106,16 +102,7 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('vendors/js/sb-admin-2.min.js') }}"></script>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    @include('sweetalert::alert')
 
     @yield('script-page')
-
-    <script>
-        $(document).ready(function() {
-            $('#summernote').summernote({
-                height: 250
-            });
-        });
-    </script>
 @endpush

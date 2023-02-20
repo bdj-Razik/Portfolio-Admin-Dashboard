@@ -12,9 +12,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TypeQualificationController;
-use App\Models\AboutUs;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,9 +52,6 @@ Route::get('/', function () {
     return view('auth.login');
 })->name('login');
 
-Route::get('/', function () {
-    return view('layout.admin-panel');
-});
 
 // About us
 Route::controller(AboutUsController::class)->group(function () {

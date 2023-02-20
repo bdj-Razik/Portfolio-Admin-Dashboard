@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Mail\SendResponseMail;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SendResponseController extends Controller
 {
@@ -24,7 +26,17 @@ class SendResponseController extends Controller
 
         ]);
 
-        Mail::to($request->email)->send(new SendResponseMail($request->message));
+        try {
+            Mail::to($request->email)->send(new SendResponseMail($request->message));
+            Alert::toast('Email Send', 'success');
 
+        } catch (Exception $ex) {
+
+
+            Alert::toast('Error Email Send', 'error');
+
+        }
+
+        return back();
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\AboutsUs;
 
 use App\Models\AboutUs;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -88,7 +89,7 @@ class AboutUsComponent extends Component
 
                         DB::rollBack();
 
-                        $this->alert('warning', 'Modification non effectué');
+                        $this->alert('warning', Config::get('custom.AlertMessage.error-update'));
 
                         return;
                     }
@@ -105,7 +106,7 @@ class AboutUsComponent extends Component
 
                         DB::rollBack();
 
-                        $this->alert('warning', 'Modification non effectué');
+                        $this->alert('warning', Config::get('custom.AlertMessage.error-update'));
 
                         return;
                     }
@@ -140,7 +141,7 @@ class AboutUsComponent extends Component
 
                         DB::rollBack();
 
-                        $this->alert('warning', 'Modification non effectué');
+                        $this->alert('warning',Config::get('custom.AlertMessage.error-update'));
 
                         return;
                     }
@@ -157,7 +158,7 @@ class AboutUsComponent extends Component
 
                         DB::rollBack();
 
-                        $this->alert('warning', 'Modification non effectué');
+                        $this->alert('warning',Config::get('custom.AlertMessage.error-update'));
 
                         return;
                     }
@@ -170,7 +171,7 @@ class AboutUsComponent extends Component
 
             DB::commit();
 
-            $this->alert('success', 'Modification effectué avec success');
+            $this->alert('success', Config::get('custom.AlertMessage.success-update'));
 
             $this->resetInput();
 
@@ -178,7 +179,7 @@ class AboutUsComponent extends Component
 
             DB::rollBack();
 
-            $this->alert('warning', 'Modification non effectué');
+            $this->alert('warning', Config::get('custom.AlertMessage.error-update'));
 
         }
 

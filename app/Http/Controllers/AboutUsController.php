@@ -15,7 +15,7 @@ class AboutUsController extends Controller
     public function index()
     {
         //
-        return view('admin-panel.about-us');
+        return view('admin-panel.abouts-us.index');
     }
 
     /**

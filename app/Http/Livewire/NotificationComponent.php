@@ -11,15 +11,20 @@ class NotificationComponent extends Component
     public $refershUnreadNotifications;
     protected $listeners = ['refershUnreadNotifications' => 'refershUnreadNotifications'];
 
-
     public function refershUnreadNotifications()
     {
         $this->refershUnreadNotifications = Auth::user()->unreadNotifications()->latest()->limit(5)->get();
     }
 
+    public function mount()
+    {
+
+        $this->refershUnreadNotifications = Auth::user()->unreadNotifications()->latest()->limit(5)->get();
+
+    }
+
     public function render()
     {
-        $this->refershUnreadNotifications = Auth::user()->unreadNotifications()->latest()->limit(5)->get();
 
         return view('livewire.notification-component', ['unreadNotifications' => $this->refershUnreadNotifications]);
     }

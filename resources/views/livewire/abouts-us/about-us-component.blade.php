@@ -247,8 +247,8 @@
 
         </div>
 
-        <div class="row col-12 my-4">
-            <button type="submit" class="btn btn-primary">Save</button>
+        <div class="row col-12 my-4 ">
+            <button type="submit" class="btn btn-primary btn-block">Save</button>
         </div>
 
 
