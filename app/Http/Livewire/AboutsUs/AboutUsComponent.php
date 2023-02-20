@@ -34,7 +34,7 @@ class AboutUsComponent extends Component
         'description' => 'nullable|string|max:255',
 
         'cv' => 'nullable|file|mimes:pdf',
-        'logo' => 'nullable|file|mimes:png,jpg,jpeg',
+        'logo' => 'nullable|file|mimes:png',
 
     ];
 
@@ -97,9 +97,9 @@ class AboutUsComponent extends Component
 
                 if ($this->logo) {
 
-                    if ($this->logo->storeAs('public/', 'logo-app.' . $this->logo->getClientOriginalExtension())) {
+                    if ($this->logo->storeAs('public/', 'logo-app.png')) {
 
-                        $aboutUs->logo = 'logo-app.' . $this->logo->getClientOriginalExtension();
+                        $aboutUs->logo = 'logo-app.png';
 
                     } else {
 
@@ -149,9 +149,9 @@ class AboutUsComponent extends Component
 
                 if ($this->logo) {
 
-                    if ($this->logo->storeAs('storage/', $this->logo->getClientOriginalName())) {
+                    if ($this->logo->storeAs('storage/logo-app.png')) {
 
-                        $aboutUs->logo = $this->logo->getClientOriginalName();
+                        $aboutUs->logo = 'logo-app.png';
 
                     } else {
 

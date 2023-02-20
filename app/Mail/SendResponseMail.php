@@ -23,6 +23,7 @@ class SendResponseMail extends Mailable
     {
         //
         $this->data = $data;
+
     }
 
     /**
