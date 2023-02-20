@@ -52,5 +52,12 @@
         </table>
     </div>
 
+    <x-layout.links-paginate>
+
+        {{ $qualifications->links() }}
+
+    </x-layout.links-paginate>
+
+
     @include('admin-panel.qualification.modal')
 </div>

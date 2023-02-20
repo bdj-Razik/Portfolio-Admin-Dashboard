@@ -26,8 +26,7 @@
                         <td>
                             <x-button-modal.show-action objectID='{{ $row->id }}' nameModal='show-message' />
                             &nbsp;
-                            <x-button-modal.delete-action objectID='{{ $row->id }}'
-                                nameModal='destroy-message' />
+                            <x-button-modal.delete-action objectID='{{ $row->id }}' nameModal='destroy-message' />
                         </td>
                     </tr>
                 @endforeach
@@ -37,9 +36,12 @@
         </table>
     </div>
 
-    <div class="text-right my-2">
+    <x-layout.links-paginate>
+
         {{ $messages->links() }}
-    </div>
+
+    </x-layout.links-paginate>
+
 
     @include('admin-panel.messages.modal')
 </div>

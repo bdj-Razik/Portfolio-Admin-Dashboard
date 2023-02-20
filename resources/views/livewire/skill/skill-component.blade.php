@@ -42,5 +42,12 @@
         </table>
     </div>
 
+    <x-layout.links-paginate>
+
+        {{ $skills->links() }}
+
+    </x-layout.links-paginate>
+
+
     @include('admin-panel.skill.modal')
 </div>

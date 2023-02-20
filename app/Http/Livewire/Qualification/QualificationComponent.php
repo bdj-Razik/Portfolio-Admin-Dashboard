@@ -7,11 +7,12 @@ use App\Models\TypeQualification;
 use Illuminate\Support\Facades\Config;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class QualificationComponent extends Component
 {
 
-    use LivewireAlert;
+    use LivewireAlert, WithPagination;
 
     public $qualificationID, $title, $company_or_institue, $location, $type, $start_date, $end_date;
 
@@ -127,8 +128,6 @@ class QualificationComponent extends Component
 
     }
 
-
-
     public function getData($qualificationID)
     {
 
@@ -147,9 +146,6 @@ class QualificationComponent extends Component
     public function render()
     {
 
-        $qualifications = Qualification::all();
-        $types = TypeQualification::all();
-
-        return view('livewire.qualification.qualification-component', ['qualifications' => $qualifications, 'types' => $types]);
+        return view('livewire.qualification.qualification-component', ['qualifications' => Qualification::simplePaginate(15), 'types' => TypeQualification::select('id', 'name')->get()]);
     }
 }

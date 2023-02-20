@@ -41,5 +41,12 @@
         </table>
     </div>
 
+
+    <x-layout.links-paginate>
+
+        {{ $services->links() }}
+
+    </x-layout.links-paginate>
+
     @include('admin-panel.service.modal')
 </div>

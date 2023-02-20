@@ -46,5 +46,12 @@
         </table>
     </div>
 
+    <x-layout.links-paginate>
+
+        {{ $clients->links() }}
+
+    </x-layout.links-paginate>
+
+
     @include('admin-panel.client.modal')
 </div>

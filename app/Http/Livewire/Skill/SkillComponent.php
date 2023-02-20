@@ -7,11 +7,12 @@ use App\Models\Skill;
 use Illuminate\Support\Facades\Config;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class SkillComponent extends Component
 {
 
-    use LivewireAlert;
+    use LivewireAlert, WithPagination;
 
     public $skillID, $name, $category, $level = 50;
 
@@ -76,7 +77,7 @@ class SkillComponent extends Component
 
         $this->validate();
 
-        $skill =  Skill::find($this->skillID);
+        $skill = Skill::find($this->skillID);
         $skill->name = $this->name;
         $skill->level = $this->level;
         $skill->skill_category_id = $this->category;
@@ -94,7 +95,6 @@ class SkillComponent extends Component
         }
 
     }
-
 
     public function destroy()
     {
@@ -114,8 +114,6 @@ class SkillComponent extends Component
 
     }
 
-
-
     public function getData($categoryID)
     {
 
@@ -130,9 +128,7 @@ class SkillComponent extends Component
 
     public function render()
     {
-        $skills = Skill::all();
-        $categories = CategorySkill::select('id', 'name')->get();
 
-        return view('livewire.skill.skill-component', ['skills' => $skills, 'categories' => $categories]);
+        return view('livewire.skill.skill-component', ['skills' => Skill::simplePaginate(15), 'categories' => CategorySkill::select('id', 'name')->get()]);
     }
 }

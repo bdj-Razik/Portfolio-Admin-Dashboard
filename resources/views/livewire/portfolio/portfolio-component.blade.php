@@ -30,7 +30,7 @@
                         <td>{{ $row->title }}</td>
                         <td>{{ $row->client->full_name }}</td>
                         <td>{{ $row->period }}</td>
-                        <td>{{ number_format($row->price)}} $</td>
+                        <td>{{ number_format($row->price) }} $</td>
                         <td>{{ $row->link }}</td>
                         {{-- <td>{{ $row->image }}</td> --}}
                         <td>{{ $row->description }}</td>
@@ -47,6 +47,13 @@
             </tbody>
         </table>
     </div>
+
+    <x-layout.links-paginate>
+
+        {{ $portfolios->links() }}
+
+    </x-layout.links-paginate>
+
 
     @include('admin-panel.portfolio.modal')
 </div>

@@ -9,11 +9,12 @@ use Illuminate\Support\Facades\DB;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
 
 class ServiceComponent extends Component
 {
 
-    use LivewireAlert, WithFileUploads;
+    use LivewireAlert, WithFileUploads , WithPagination;
 
     public $serviceID, $title, $description, $image;
 
@@ -178,6 +179,6 @@ class ServiceComponent extends Component
     public function render()
     {
 
-        return view('livewire.service.service-component', ['services' => Service::all()]);
+        return view('livewire.service.service-component', ['services' => Service::simplePaginate(15)]);
     }
 }
