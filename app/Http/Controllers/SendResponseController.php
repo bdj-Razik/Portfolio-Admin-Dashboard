@@ -28,12 +28,12 @@ class SendResponseController extends Controller
 
         try {
             Mail::to($request->email)->send(new SendResponseMail($request->message));
-            Alert::toast('Email Send', 'success');
+            Alert::toast('Your mail has been sent successfuly', 'success');
 
         } catch (Exception $ex) {
 
 
-            Alert::toast('Error Email Send', 'error');
+            Alert::toast('Error !!', 'error');
 
         }
 

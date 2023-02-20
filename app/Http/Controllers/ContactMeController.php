@@ -68,7 +68,7 @@ class ContactMeController extends Controller
 
             DB::commit();
 
-            Alert::toast('Email Send', 'success');
+            Alert::toast('Your mail has been sent successfuly', 'success');
 
             return back()->withInput();
 
@@ -76,7 +76,7 @@ class ContactMeController extends Controller
 
             DB::rollBack();
 
-            Alert::toast('Error Email Send', 'error');
+            Alert::toast('Error !!', 'error');
 
             return back();
         }
