@@ -12,6 +12,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TypeQualificationController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,186 +28,173 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/test', function () {
 
-
-
     // ContactMe::all()->each(function($c){
     //     Notification::send(Auth::user(), new MessagerieNotification($c));
     // });
-
-    // dd(
-    //     DB::table('portfolios')->selectRaw("MONTHNAME(created_at) as month , SUM(price) AS price")
-    //     ->groupByRaw('MONTH(created_at)')
-    //     ->whereBetween('created_at',
-    //         [Carbon::now()->subMonth(6), Carbon::now()]
-    //     )
-    //     ->first()
-    // );
-
-    // Portfolio::where(function (Builder $query) {
-    //     $query->selectRaw('MONTHNAME(created_at ) as month');
-    // })->get();
-
 });
 
 Route::get('/', function () {
     return view('auth.login');
-})->name('login');
-
-
-// About us
-Route::controller(AboutUsController::class)->group(function () {
-    // prefix name for url
-    Route::prefix('abouts-us')->group(function () {
-        // name for route
-        Route::name('abouts.')->group(function () {
-
-            Route::get('/', 'index')->name('index');
-
-        });
-    });
 });
 
-// Category Skill
-Route::controller(CategorySkillController::class)->group(function () {
-    // prefix name for url
-    Route::prefix('category-skills')->group(function () {
-        // name for route
-        Route::name('category-skill.')->group(function () {
-
-            Route::get('/', 'index')->name('index');
-
-        });
-    });
-});
-
-// Skill
-Route::controller(SkillController::class)->group(function () {
-    // prefix name for url
-    Route::prefix('skills')->group(function () {
-        // name for route
-        Route::name('skill.')->group(function () {
-
-            Route::get('/', 'index')->name('index');
-
-        });
-    });
-});
-
-// TypeQualification
-Route::controller(TypeQualificationController::class)->group(function () {
-    // prefix name for url
-    Route::prefix('type-qualifications')->group(function () {
-        // name for route
-        Route::name('typeQualification.')->group(function () {
-
-            Route::get('/', 'index')->name('index');
-
-        });
-    });
-});
-
-// Qualification
-Route::controller(QualificationController::class)->group(function () {
-    // prefix name for url
-    Route::prefix('qualifications')->group(function () {
-        // name for route
-        Route::name('qualification.')->group(function () {
-
-            Route::get('/', 'index')->name('index');
-
-        });
-    });
-});
-
-// Service
-Route::controller(ServiceController::class)->group(function () {
-    // prefix name for url
-    Route::prefix('services')->group(function () {
-        // name for route
-        Route::name('services.')->group(function () {
-
-            Route::get('/', 'index')->name('index');
-
-        });
-    });
-});
-
-// Portfolio
-Route::controller(PortfolioController::class)->group(function () {
-    // prefix name for url
-    Route::prefix('portfolios')->group(function () {
-        // name for route
-        Route::name('portfolio.')->group(function () {
-
-            Route::get('/', 'index')->name('index');
-
-        });
-    });
-});
-
-// Client
-Route::controller(ClientController::class)->group(function () {
-    // prefix name for url
-    Route::prefix('clients')->group(function () {
-        // name for route
-        Route::name('client.')->group(function () {
-
-            Route::get('/', 'index')->name('index');
-
-        });
-    });
-});
-
-// Message
-Route::controller(ContactMeController::class)->group(function () {
-    // prefix name for url
-    Route::prefix('messages')->group(function () {
-        // name for route
-        Route::name('message.')->group(function () {
-
-            Route::get('/', 'index')->name('index');
-
-            Route::get('show/{messageID}', 'show')->name('show');
-
-        });
-    });
-});
-
-// Send Response
-Route::post('send-response', SendResponseController::class)->name('sendResponse');
-
-// Profile
-Route::controller(ProfileController::class)->group(function () {
-    // prefix name for url
-    Route::prefix('profile')->group(function () {
-        // name for route
-        Route::name('profile.')->group(function () {
-
-            Route::get('/', 'index')->name('index');
-
-        });
-    });
-});
-
-// Setting
-Route::controller(SettingsController::class)->group(function () {
-    // prefix name for url
-    Route::prefix('settings')->group(function () {
-        // name for route
-        Route::name('settings.')->group(function () {
-
-            Route::get('/', 'index')->name('index');
-
-        });
-    });
-});
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+
+    // Dashboard
     Route::get('/dashboard', function () {
         return view('admin-panel.dashboard.index');
     })->name('dashboard');
+
+// About us
+    Route::controller(AboutUsController::class)->group(function () {
+        // prefix name for url
+        Route::prefix('abouts-us')->group(function () {
+            // name for route
+            Route::name('abouts.')->group(function () {
+
+                Route::get('/', 'index')->name('index');
+
+            });
+        });
+    });
+
+// Category Skill
+    Route::controller(CategorySkillController::class)->group(function () {
+        // prefix name for url
+        Route::prefix('category-skills')->group(function () {
+            // name for route
+            Route::name('category-skill.')->group(function () {
+
+                Route::get('/', 'index')->name('index');
+
+            });
+        });
+    });
+
+// Skill
+    Route::controller(SkillController::class)->group(function () {
+        // prefix name for url
+        Route::prefix('skills')->group(function () {
+            // name for route
+            Route::name('skill.')->group(function () {
+
+                Route::get('/', 'index')->name('index');
+
+            });
+        });
+    });
+
+// TypeQualification
+    Route::controller(TypeQualificationController::class)->group(function () {
+        // prefix name for url
+        Route::prefix('type-qualifications')->group(function () {
+            // name for route
+            Route::name('typeQualification.')->group(function () {
+
+                Route::get('/', 'index')->name('index');
+
+            });
+        });
+    });
+
+// Qualification
+    Route::controller(QualificationController::class)->group(function () {
+        // prefix name for url
+        Route::prefix('qualifications')->group(function () {
+            // name for route
+            Route::name('qualification.')->group(function () {
+
+                Route::get('/', 'index')->name('index');
+
+            });
+        });
+    });
+
+// Service
+    Route::controller(ServiceController::class)->group(function () {
+        // prefix name for url
+        Route::prefix('services')->group(function () {
+            // name for route
+            Route::name('services.')->group(function () {
+
+                Route::get('/', 'index')->name('index');
+
+            });
+        });
+    });
+
+// Portfolio
+    Route::controller(PortfolioController::class)->group(function () {
+        // prefix name for url
+        Route::prefix('portfolios')->group(function () {
+            // name for route
+            Route::name('portfolio.')->group(function () {
+
+                Route::get('/', 'index')->name('index');
+
+            });
+        });
+    });
+
+// Client
+    Route::controller(ClientController::class)->group(function () {
+        // prefix name for url
+        Route::prefix('clients')->group(function () {
+            // name for route
+            Route::name('client.')->group(function () {
+
+                Route::get('/', 'index')->name('index');
+
+            });
+        });
+    });
+
+// Message
+    Route::controller(ContactMeController::class)->group(function () {
+        // prefix name for url
+        Route::prefix('messages')->group(function () {
+            // name for route
+            Route::name('message.')->group(function () {
+
+                Route::get('/', 'index')->name('index');
+
+                Route::get('show/{messageID}', 'show')->name('show');
+
+            });
+        });
+    });
+
+// Send Response
+    Route::post('send-response', SendResponseController::class)->name('sendResponse');
+
+// Profile
+    Route::controller(ProfileController::class)->group(function () {
+        // prefix name for url
+        Route::prefix('profile')->group(function () {
+            // name for route
+            Route::name('profile.')->group(function () {
+
+                Route::get('/', 'index')->name('index');
+
+            });
+        });
+    });
+
+// Setting
+    Route::controller(SettingsController::class)->group(function () {
+        // prefix name for url
+        Route::prefix('settings')->group(function () {
+            // name for route
+            Route::name('settings.')->group(function () {
+
+                Route::get('/', 'index')->name('index');
+
+            });
+        });
+    });
+
 });
