@@ -56,8 +56,6 @@
     @section('script-page')
         <!-- Page level plugins -->
         <script src="{{ asset('vendors/vendor/chart.js/Chart.min.js') }}"></script>
-
-        {{-- <script src="{{ asset('vendors/js/demo/chart-bar-demo.js') }}"></script> --}}
         <script>
             let data = @js($priceMonthly);
             let month = [];
