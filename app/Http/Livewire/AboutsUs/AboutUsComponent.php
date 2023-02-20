@@ -12,7 +12,7 @@ class AboutUsComponent extends Component
 {
     use LivewireAlert, WithFileUploads;
 
-    public $title, $first_name, $last_name, $email, $phone, $github, $linkedin, $twitter, $facebook, $adresse, $description, $cv;
+    public $title, $first_name, $last_name, $email, $phone, $github, $linkedin, $twitter, $facebook, $adresse, $description, $cv, $logo;
 
     protected $rules = [
 
@@ -34,6 +34,7 @@ class AboutUsComponent extends Component
         'description' => 'nullable|string|max:255',
 
         'cv' => 'nullable|file|mimes:pdf',
+        'logo' => 'nullable|file|mimes:png,jpg,jpeg',
 
     ];
 
@@ -94,26 +95,78 @@ class AboutUsComponent extends Component
 
                 }
 
+                if ($this->logo) {
+
+                    if ($this->logo->storeAs('public/', 'logo-app.' . $this->logo->getClientOriginalExtension())) {
+
+                        $aboutUs->logo = 'logo-app.' . $this->logo->getClientOriginalExtension();
+
+                    } else {
+
+                        DB::rollBack();
+
+                        $this->alert('warning', 'Modification non effectué');
+
+                        return;
+                    }
+
+                }
+
                 $aboutUs->update();
 
             } else {
 
-                AboutUs::create([
+                $aboutUs = new AboutUs();
 
-                    'title' => $this->title,
-                    'first_name' => $this->first_name,
-                    'last_name' => $this->last_name,
-                    'email' => $this->email,
-                    'phone' => $this->phone,
-                    'github' => $this->github,
-                    'linkedin' => $this->linkedin,
-                    'twitter' => $this->twitter,
-                    'facebook' => $this->facebook,
-                    'adresse' => $this->adresse,
-                    'description' => $this->description,
-                ]);
+                $aboutUs->title = $this->title;
+                $aboutUs->first_name = $this->first_name;
+                $aboutUs->last_name = $this->last_name;
+                $aboutUs->email = $this->email;
+                $aboutUs->phone = $this->phone;
+                $aboutUs->github = $this->github;
+                $aboutUs->linkedin = $this->linkedin;
+                $aboutUs->twitter = $this->twitter;
+                $aboutUs->facebook = $this->facebook;
+                $aboutUs->adresse = $this->adresse;
+                $aboutUs->description = $this->description;
+
+                if ($this->cv) {
+
+                    if ($this->cv->storeAs('cv/', $this->cv->getClientOriginalName())) {
+
+                        $aboutUs->cv = $this->cv->getClientOriginalName();
+
+                    } else {
+
+                        DB::rollBack();
+
+                        $this->alert('warning', 'Modification non effectué');
+
+                        return;
+                    }
+
+                }
+
+                if ($this->logo) {
+
+                    if ($this->logo->storeAs('storage/', $this->logo->getClientOriginalName())) {
+
+                        $aboutUs->logo = $this->logo->getClientOriginalName();
+
+                    } else {
+
+                        DB::rollBack();
+
+                        $this->alert('warning', 'Modification non effectué');
+
+                        return;
+                    }
+
+                }
 
             }
+
+            $aboutUs->save();
 
             DB::commit();
 

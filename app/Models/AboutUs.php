@@ -26,6 +26,8 @@ class AboutUs extends Model
         'phone',
         'adresse',
         'description',
+        'cv',
+        'logo',
     ];
 
 }

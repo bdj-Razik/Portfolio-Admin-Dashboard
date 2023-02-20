@@ -218,6 +218,35 @@
 
         </div>
 
+
+
+
+
+
+        <div class="row">
+            <div class="col-12 my-3">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="logo">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input @error('logo')  is-invalid  @enderror"
+                            aria-describedby="logo" name="logo" wire:model.defer='logo'>
+                        <label class="custom-file-label" for="logo">Choose file (Logo)</label>
+                    </div>
+                </div>
+
+                <x-layout.loader target='logo' />
+
+                @error('logo')
+                    <div class="text-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
+        </div>
+
         <div class="row col-12 my-4">
             <button type="submit" class="btn btn-primary">Save</button>
         </div>

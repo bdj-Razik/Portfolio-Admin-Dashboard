@@ -17,9 +17,14 @@ class SendResponseController extends Controller
     public function __invoke(Request $request)
     {
         //
+        $request->validate([
 
-        // Mail::to($request->email);
-        Mail::to('f.razik@gmail.com')->send(new SendResponseMail('test'));
+            'email' => 'required|email',
+            'message' => 'required|string',
+
+        ]);
+
+        Mail::to($request->email)->send(new SendResponseMail($request->message));
 
     }
 }

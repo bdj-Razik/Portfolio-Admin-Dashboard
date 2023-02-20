@@ -12,8 +12,12 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TypeQualificationController;
+use App\Models\ContactMe;
+use App\Notifications\MessagerieNotification;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,15 +34,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/test', function () {
 
 
+    // ContactMe::all()->each(function($c){
+    //     Notification::send(Auth::user(), new MessagerieNotification($c));
+    // });
 
-    dd(
-        DB::table('portfolios')->selectRaw("MONTHNAME(created_at) as month , SUM(price) AS price")
-        ->groupByRaw('MONTH(created_at)')
-        ->whereBetween('created_at',
-            [Carbon::now()->subMonth(6), Carbon::now()]
-        )
-        ->first()
-    );
+
+    // dd(
+    //     DB::table('portfolios')->selectRaw("MONTHNAME(created_at) as month , SUM(price) AS price")
+    //     ->groupByRaw('MONTH(created_at)')
+    //     ->whereBetween('created_at',
+    //         [Carbon::now()->subMonth(6), Carbon::now()]
+    //     )
+    //     ->first()
+    // );
 
     // Portfolio::where(function (Builder $query) {
     //     $query->selectRaw('MONTHNAME(created_at ) as month');

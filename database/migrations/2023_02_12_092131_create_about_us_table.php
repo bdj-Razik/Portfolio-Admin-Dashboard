@@ -31,7 +31,10 @@ return new class extends Migration
             $table->string('dribbble', 255)->nullable();
 
             $table->string('adresse', 255)->nullable();
+
             $table->string('cv', 55)->nullable();
+            $table->string('logo', 2048)->nullable();
+
             $table->string('description', 255)->nullable();
             $table->timestamps();
         });

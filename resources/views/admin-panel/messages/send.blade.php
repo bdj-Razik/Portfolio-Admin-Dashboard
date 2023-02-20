@@ -43,7 +43,13 @@
 
                 <div class="row my-3">
                     <div class="col-12">
-                        <textarea id="summernote" name="editordata"></textarea>
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control  @error('message')  is-invalid  @enderror" name="message"></textarea>
+                        @error('message')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
 
