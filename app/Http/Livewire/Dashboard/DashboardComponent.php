@@ -21,7 +21,7 @@ class DashboardComponent extends Component
             ->whereBetween('created_at',
                 [Carbon::now()->subMonth(6), Carbon::now()]
             )
-            ->first();
+            ->get();
 
         return view('livewire.dashboard.dashboard-component',
             [
