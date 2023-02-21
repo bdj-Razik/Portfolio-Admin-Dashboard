@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CategorySkillController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactMeController;
+use App\Http\Controllers\FreelanceController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QualificationController;
@@ -126,6 +127,19 @@ Route::middleware([
         Route::prefix('portfolios')->group(function () {
             // name for route
             Route::name('portfolio.')->group(function () {
+
+                Route::get('/', 'index')->name('index');
+
+            });
+        });
+    });
+
+    // freelance
+    Route::controller(FreelanceController::class)->group(function () {
+        // prefix name for url
+        Route::prefix('freelance')->group(function () {
+            // name for route
+            Route::name('freelance.')->group(function () {
 
                 Route::get('/', 'index')->name('index');
 

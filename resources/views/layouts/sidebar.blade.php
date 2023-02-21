@@ -95,6 +95,15 @@
                     <span>Portfolio</span></a>
             </li>
 
+            {{-- Freelance --}}
+            <li class="nav-item {{ request()->path() == 'freelance' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('freelance.index') }}">
+                    <i class="fa-solid fa-code-compare"></i>
+                    <span>Freelance</span></a>
+            </li>
+
+
+
 
 
             {{-- Message --}}

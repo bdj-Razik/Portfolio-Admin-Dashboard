@@ -75,6 +75,7 @@ return [
         public_path('img-service') => storage_path('app/img-service'),
         public_path('img-client') => storage_path('app/img-client'),
         public_path('img-portfolio') => storage_path('app/img-portfolio'),
+        public_path('img-freelance') => storage_path('app/img-freelance'),
     ],
 
 ];
