@@ -11,6 +11,7 @@ class CategorySkillComponent extends Component
 {
     use LivewireAlert;
 
+
     public $categoryID, $category, $experience;
 
     protected function rules()

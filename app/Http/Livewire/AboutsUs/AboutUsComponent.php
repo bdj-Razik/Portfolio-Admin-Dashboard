@@ -13,6 +13,7 @@ class AboutUsComponent extends Component
 {
     use LivewireAlert, WithFileUploads;
 
+
     public $title, $first_name, $last_name, $email, $phone, $github, $linkedin, $twitter, $facebook, $adresse, $description, $cv, $logo;
 
     protected $rules = [
@@ -53,13 +54,18 @@ class AboutUsComponent extends Component
     public function update()
     {
 
+
         $this->validate();
+
+
 
         DB::beginTransaction();
 
         try {
 
             $aboutUs = AboutUs::first();
+
+
 
             if ($aboutUs) {
 
