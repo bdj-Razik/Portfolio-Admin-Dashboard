@@ -1,4 +1,4 @@
-<x-jet-action-section>
+<x-jet-action-section style="margin-top: 55px !important">
     <x-slot name="title">
         {{ __('Two Factor Authentication') }}
     </x-slot>
@@ -27,6 +27,8 @@
         </div>
 
         @if ($this->enabled)
+
+
             @if ($showingQrCode)
                 <div class="mt-4 max-w-xl text-sm text-gray-600">
                     <p class="font-semibold">
