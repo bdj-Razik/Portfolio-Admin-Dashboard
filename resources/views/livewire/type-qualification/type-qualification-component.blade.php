@@ -15,7 +15,8 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Type</th>
-                    <th scope="col" style="width:10%">Action</th>
+                    <th scope="col" style="width:2%"></th>
+                    <th scope="col" style="width:2%"></th>
                 </tr>
             </thead>
             <tbody>
@@ -27,7 +28,8 @@
                         <td>
                             <x-button-modal.update-action objectID='{{ $row->id }}'
                                 nameModal='update-type-qualification' />
-                            &nbsp;
+                        </td>
+                        <td>
                             <x-button-modal.delete-action objectID='{{ $row->id }}'
                                 nameModal='destroy-type-qualification' />
 

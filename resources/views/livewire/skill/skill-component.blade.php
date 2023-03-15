@@ -17,7 +17,8 @@
                     <th scope="col">Skill</th>
                     <th scope="col">Level</th>
                     <th scope="col">Category</th>
-                    <th scope="col" style="width:10%">Action</th>
+                    <th scope="col" style="width:2%"></th>
+                    <th scope="col" style="width:2%"></th>
                 </tr>
             </thead>
             <tbody>
@@ -30,7 +31,8 @@
 
                         <td>
                             <x-button-modal.update-action objectID='{{ $row->id }}' nameModal='update-skill' />
-                            &nbsp;
+                        </td>
+                        <td>
                             <x-button-modal.delete-action objectID='{{ $row->id }}' nameModal='destroy-skill' />
 
                         </td>

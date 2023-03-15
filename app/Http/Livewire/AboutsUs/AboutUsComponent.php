@@ -49,6 +49,8 @@ class AboutUsComponent extends Component
     {
 
         $this->cv = null;
+        $this->logo = null;
+
     }
 
     public function update()

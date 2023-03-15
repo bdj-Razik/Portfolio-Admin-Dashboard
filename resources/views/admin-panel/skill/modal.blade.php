@@ -49,9 +49,9 @@
 
 
                         <div class="col-12 my-3">
-                            <label for="level">Level <span id="rangeval">50 %</span><span class="text-danger">&nbsp;*</span></label>
+                            <label for="level">Level <span id="rangeval">50</span> %<span class="text-danger">&nbsp;*</span></label>
                             <input type="range" class="custom-range @error('level')  is-invalid  @enderror"
-                                min="10" max="90" step="10" id="level" name="level"
+                                min="10" max="90" step="5" id="level" name="level"
                                 wire:model.defer='level' required onInput="$('#rangeval').html($(this).val())">
                             @error('level')
                                 <div class="invalid-feedback">

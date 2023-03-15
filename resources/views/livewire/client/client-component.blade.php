@@ -19,7 +19,9 @@
                     <th scope="col">Email</th>
                     <th scope="col">Phone</th>
 
-                    <th scope="col" style="width:10%">Action</th>
+                    <th scope="col" style="width:2%"></th>
+                    <th scope="col" style="width:2%"></th>
+
                 </tr>
             </thead>
             <tbody>
@@ -35,7 +37,8 @@
                         <td>{{ $row->phone }}</td>
                         <td>
                             <x-button-modal.update-action objectID='{{ $row->id }}' nameModal='update-client' />
-                            &nbsp;
+                        </td>
+                        <td>
                             <x-button-modal.delete-action objectID='{{ $row->id }}' nameModal='destroy-client' />
                         </td>
                     </tr>

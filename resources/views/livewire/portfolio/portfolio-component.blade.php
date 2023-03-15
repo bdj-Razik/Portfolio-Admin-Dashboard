@@ -20,7 +20,8 @@
                     <th scope="col">Price</th>
                     <th scope="col">Link</th>
                     <th scope="col">Description</th>
-                    <th scope="col" style="width:10%">Action</th>
+                    <th scope="col" style="width:2%"></th>
+                    <th scope="col" style="width:2%"></th>
                 </tr>
             </thead>
             <tbody>
@@ -36,7 +37,8 @@
                         <td>{{ $row->description }}</td>
                         <td>
                             <x-button-modal.update-action objectID='{{ $row->id }}' nameModal='update-portfolio' />
-                            &nbsp;
+                        </td>
+                        <td>
                             <x-button-modal.delete-action objectID='{{ $row->id }}'
                                 nameModal='destroy-portfolio' />
                         </td>

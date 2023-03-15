@@ -17,7 +17,8 @@
                     <th scope="col">Image</th>
                     <th scope="col">Title</th>
                     <th scope="col">Url</th>
-                    <th scope="col" style="width:10%">Action</th>
+                    <th scope="col" style="width:2%"></th>
+                    <th scope="col" style="width:2%"></th>
                 </tr>
             </thead>
             <tbody>
@@ -30,11 +31,13 @@
                                 style="width: 30px" /></th>
                         <td>{{ $row->title }}</td>
                         <td>
-                            <a   class="badge badge-info" href="{{ $row->url }}" target="_blank" rel="noopener noreferrer">{{ $row->url }}</a>
+                            <a class="badge badge-info" href="{{ $row->url }}" target="_blank"
+                                rel="noopener noreferrer">{{ $row->url }}</a>
                         </td>
                         <td>
                             <x-button-modal.update-action objectID='{{ $row->id }}' nameModal='update-freelance' />
-                            &nbsp;
+                        </td>
+                        <td>
                             <x-button-modal.delete-action objectID='{{ $row->id }}'
                                 nameModal='destroy-freelance' />
                         </td>
