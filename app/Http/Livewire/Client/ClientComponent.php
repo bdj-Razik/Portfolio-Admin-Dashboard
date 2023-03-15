@@ -13,13 +13,15 @@ use Livewire\WithPagination;
 class ClientComponent extends Component
 {
 
-    use LivewireAlert, WithFileUploads , WithPagination;
+    use LivewireAlert, WithFileUploads, WithPagination;
 
-    public $clientID, $full_name, $email, $phone, $period, $description, $photo;
+    public $clientID, $full_name, $email, $phone, $photo;
+    protected $listeners = [ 'close'];
 
     protected function rules()
     {
         return [
+
             'full_name' => 'required|string|max:55|unique:clients,full_name,' . $this->clientID,
             'email' => 'required|email|unique:clients,email,' . $this->clientID,
             'phone' => 'required|numeric|unique:clients,email,' . $this->clientID,
@@ -32,7 +34,6 @@ class ClientComponent extends Component
     {
         $this->resetInputs();
         $this->resetValidation();
-
     }
 
     public function resetInputs()

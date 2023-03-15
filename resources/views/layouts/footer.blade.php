@@ -3,12 +3,4 @@
 @livewireScripts
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <x-livewire-alert::scripts />
-<script>
-    window.addEventListener('closeModal', event => {
-        $('.modal').modal('hide');
-    });
-    $('.modal').on('hide.bs.modal', function(event) {
-        livewire.emit('close');
-    });
-</script>
 @stack('script')

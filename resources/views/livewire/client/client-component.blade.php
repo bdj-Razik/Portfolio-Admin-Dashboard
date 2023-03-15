@@ -57,4 +57,6 @@
 
 
     @include('admin-panel.client.modal')
+
+
 </div>

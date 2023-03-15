@@ -1,6 +1,5 @@
 <!-- Modal  Add-->
-<div wire:ignore.self class="modal fade" id="add-client" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="add-client" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -14,7 +13,8 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="full_name" class="form-label">Full name<span class="text-danger">&nbsp;*</span></label>
+                            <label for="full_name" class="form-label">Full name<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('full_name')  is-invalid  @enderror"
                                 name="full_name" wire:model='full_name' autocomplete="off" required>
                             @error('full_name')
@@ -26,7 +26,8 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="email" class="form-label">Email<span class="text-danger">&nbsp;*</span></label>
+                            <label for="email" class="form-label">Email<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <input type="email" class="form-control @error('email')  is-invalid  @enderror"
                                 name="email" wire:model='email' autocomplete="off" required>
                             @error('email')
@@ -39,7 +40,8 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="phone" class="form-label">Phone<span class="text-danger">&nbsp;*</span></label>
+                            <label for="phone" class="form-label">Phone<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <input type="tel" class="form-control @error('phone')  is-invalid  @enderror"
                                 name="phone" wire:model='phone' autocomplete="off" required>
                             @error('phone')
@@ -89,7 +91,7 @@
 
 
 {{-- Modal Update --}}
-<div wire:ignore.self class="modal fade" id="update-client" tabindex="-1" role="dialog">
+<div wire:ignore.self class="modal fade" id="update-client" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -105,7 +107,8 @@
                     <div class="form-row">
 
                         <div class="col-12 mb-3">
-                            <label for="full_name" class="form-label">Full name<span class="text-danger">&nbsp;*</span></label>
+                            <label for="full_name" class="form-label">Full name<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <input type="text" class="form-control @error('full_name')  is-invalid  @enderror"
                                 name="full_name" wire:model='full_name' autocomplete="off" required>
                             @error('full_name')
@@ -117,7 +120,8 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="email" class="form-label">Email<span class="text-danger">&nbsp;*</span></label>
+                            <label for="email" class="form-label">Email<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <input type="email" class="form-control @error('email')  is-invalid  @enderror"
                                 name="email" wire:model='email' autocomplete="off" required>
                             @error('email')
@@ -130,7 +134,8 @@
 
 
                         <div class="col-md-6 mb-3">
-                            <label for="phone" class="form-label">Phone<span class="text-danger">&nbsp;*</span></label>
+                            <label for="phone" class="form-label">Phone<span
+                                    class="text-danger">&nbsp;*</span></label>
                             <input type="tel" class="form-control @error('phone')  is-invalid  @enderror"
                                 name="phone" wire:model='phone' autocomplete="off" required>
                             @error('phone')
@@ -179,7 +184,7 @@
 
 
 {{-- Modal Destroy --}}
-<div wire:ignore.self class="modal fade" id="destroy-client" tabindex="-1" role="dialog">
+<div wire:ignore.self class="modal fade" id="destroy-client" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog  modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
