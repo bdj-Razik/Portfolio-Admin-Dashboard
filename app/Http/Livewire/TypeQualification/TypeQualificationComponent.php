@@ -12,6 +12,7 @@ class TypeQualificationComponent extends Component
     use LivewireAlert;
 
     public $typeID, $name;
+    protected $listeners = [ 'close'];
 
     protected function rules()
     {

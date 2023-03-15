@@ -15,6 +15,7 @@ class AboutUsComponent extends Component
 
 
     public $title, $first_name, $last_name, $email, $phone, $github, $linkedin, $twitter, $facebook, $adresse, $description, $cv, $logo;
+    protected $listeners = [ 'close'];
 
     protected $rules = [
 

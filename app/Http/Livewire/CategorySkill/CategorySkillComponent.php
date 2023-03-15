@@ -13,6 +13,7 @@ class CategorySkillComponent extends Component
 
 
     public $categoryID, $category, $experience;
+    protected $listeners = [ 'close'];
 
     protected function rules()
     {

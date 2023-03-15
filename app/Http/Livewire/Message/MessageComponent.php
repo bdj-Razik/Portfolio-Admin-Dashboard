@@ -16,6 +16,7 @@ class MessageComponent extends Component
     use LivewireAlert, WithPagination;
 
     public $messageID = 0, $full_name, $title, $email, $description;
+    protected $listeners = [ 'close'];
 
     public function resetInputs()
     {

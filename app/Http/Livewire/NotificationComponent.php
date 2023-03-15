@@ -9,7 +9,8 @@ class NotificationComponent extends Component
 {
 
     public $refershUnreadNotifications;
-    protected $listeners = ['refershUnreadNotifications' => 'refershUnreadNotifications'];
+    protected $listeners = ['refershUnreadNotifications' => 'refershUnreadNotifications' , 'close'];
+
 
     public function refershUnreadNotifications()
     {

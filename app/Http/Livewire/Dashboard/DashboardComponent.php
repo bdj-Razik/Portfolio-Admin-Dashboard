@@ -13,6 +13,8 @@ use Livewire\Component;
 class DashboardComponent extends Component
 {
 
+    protected $listeners = [ 'close'];
+
     public function render()
     {
 

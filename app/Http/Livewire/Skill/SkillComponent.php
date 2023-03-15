@@ -15,6 +15,7 @@ class SkillComponent extends Component
     use LivewireAlert, WithPagination;
 
     public $skillID, $name, $category, $level = 50;
+    protected $listeners = [ 'close'];
 
     protected function rules()
     {

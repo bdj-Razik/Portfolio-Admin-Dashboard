@@ -17,6 +17,7 @@ class ServiceComponent extends Component
     use LivewireAlert, WithFileUploads , WithPagination;
 
     public $serviceID, $title, $description, $image;
+    protected $listeners = [ 'close'];
 
     protected function rules()
     {

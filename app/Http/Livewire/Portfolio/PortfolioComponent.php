@@ -17,6 +17,7 @@ class PortfolioComponent extends Component
     use LivewireAlert, WithFileUploads, WithPagination;
 
     public $portfolioID, $title, $client, $link, $period, $price, $feedback, $description, $image;
+    protected $listeners = [ 'close'];
 
     protected function rules()
     {

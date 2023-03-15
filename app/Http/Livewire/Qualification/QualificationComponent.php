@@ -15,6 +15,7 @@ class QualificationComponent extends Component
     use LivewireAlert, WithPagination;
 
     public $qualificationID, $title, $company_or_institue, $location, $type, $start_date, $end_date;
+    protected $listeners = [ 'close'];
 
     protected function rules()
     {

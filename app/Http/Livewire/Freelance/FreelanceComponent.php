@@ -16,6 +16,7 @@ class FreelanceComponent extends Component
     use LivewireAlert, WithFileUploads , WithPagination;
 
     public $freelanceID, $title, $url, $image;
+    protected $listeners = [ 'close'];
 
     protected function rules()
     {
