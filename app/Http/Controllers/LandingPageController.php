@@ -23,8 +23,8 @@ class LandingPageController extends Controller
         $qualifications = Qualification::get();
 
 
-        $company = Qualification::company();
+        $companyCount = Qualification::companyCount();
 
-        return view('landing-page.index', compact('aboutsUs', 'projects', 'qualifications'))->with('company', $company);
+        return view('landing-page.index', compact('aboutsUs', 'projects', 'qualifications'))->with('companyCount', $companyCount);
     }
 }

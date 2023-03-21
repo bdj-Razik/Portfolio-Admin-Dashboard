@@ -28,7 +28,7 @@ class Qualification extends Model
         return $this->belongsTo(TypeQualification::class, 'type_qualification_id');
     }
 
-    public static function company()
+    public static function companyCount()
     {
         return static::where('type_qualification_id', 1)->get()->count() ?? 0;
     }

@@ -24,7 +24,7 @@
                                 <span class="about_info-name">Completed <br>project</span>
                             </div>
                             <div>
-                                <span class="about_info-title">{{ $company - 1 }}+</span>
+                                <span class="about_info-title">{{ $companyCount - 1 }}+</span>
                                 <span class="about_info-name">Companies <br>worked</span>
                             </div>
                         </div>

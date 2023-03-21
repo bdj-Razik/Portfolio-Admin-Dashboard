@@ -9,6 +9,7 @@
                             <i class="uil uil-graduation-cap qualification_icon"></i>
                             Education
                         </div>
+                        <span>&ensp;</span>
                         <div class="qualificaction_button button--flex" data-target="#work">
                             <i class="uil uil-briefcase-alt qualification-icon"></i>
                             Work
