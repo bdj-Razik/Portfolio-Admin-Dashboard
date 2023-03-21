@@ -14,8 +14,10 @@ class AboutUs extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'title',
+        'sub_title',
         'first_name',
         'last_name',
+        'experience',
         'email',
         'github',
         'linkedin',

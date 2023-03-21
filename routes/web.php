@@ -5,6 +5,7 @@ use App\Http\Controllers\CategorySkillController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactMeController;
 use App\Http\Controllers\FreelanceController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QualificationController;
@@ -27,14 +28,14 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
- Route::get('/artisan', function () {
+Route::get('/artisan', function () {
 
-     Artisan::call('migrate');
-     Artisan::call('db:seed');
+    Artisan::call('migrate');
+    Artisan::call('db:seed');
 
- });
+});
 
-
+Route::get('/portfolio', LandingPageController::class);
 
 Route::get('/', function () {
     return view('auth.login');

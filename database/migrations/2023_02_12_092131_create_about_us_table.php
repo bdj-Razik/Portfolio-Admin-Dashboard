@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('about_us', function (Blueprint $table) {
             $table->id();
             $table->string('title', 55);
+            $table->longText('sub_title')->nullable();
 
             $table->string('first_name', 55);
             $table->string('last_name', 55);
+            $table->integer('experience')->nullable();
 
             $table->string('email', 55);
             $table->string('phone', 55);
