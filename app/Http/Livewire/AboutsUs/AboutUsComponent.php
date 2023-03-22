@@ -25,7 +25,7 @@ class AboutUsComponent extends Component
         'last_name' => 'required|string|max:55',
 
         'email' => 'required|email',
-        'phone' => 'required|numeric',
+        'phone' => 'required|string',
 
         'github' => 'nullable|url|max:255',
         'linkedin' => 'nullable|url|max:255',

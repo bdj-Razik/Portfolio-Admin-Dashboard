@@ -10,7 +10,7 @@
 
                       <div>
                           <h3 class="contact_title">Call Me</h3>
-                          <span class="contact_subtitle">444-444-444</span>
+                          <span class="contact_subtitle">{{ $aboutsUs->phone }}</span>
                       </div>
                   </div>
                   <div class="contact_information">
@@ -18,7 +18,7 @@
 
                       <div>
                           <h3 class="contact_title">Email</h3>
-                          <span class="contact_subtitle">johndoe@gmail.com</span>
+                          <span class="contact_subtitle">{{ $aboutsUs->email }}</span>
                       </div>
                   </div>
                   <div class="contact_information">
@@ -26,7 +26,7 @@
 
                       <div>
                           <h3 class="contact_title">Location</h3>
-                          <span class="contact_subtitle">Germany-Munich Av.munich #1234</span>
+                          <span class="contact_subtitle">{{ $aboutsUs->adresse }}</span>
                       </div>
                   </div>
               </div>
