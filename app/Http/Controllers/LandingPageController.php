@@ -6,6 +6,7 @@ use App\Models\AboutUs;
 use App\Models\CategorySkill;
 use App\Models\Portfolio;
 use App\Models\Qualification;
+use App\Models\Service;
 use App\Models\TypeQualification;
 use Illuminate\Http\Request;
 
@@ -29,9 +30,13 @@ class LandingPageController extends Controller
         $dataBase = CategorySkill::where('name', 'DataBase Developer')->first();
         $framework = CategorySkill::where('name', 'Framework Developer')->first();
 
+        $works = TypeQualification::where('name', 'work')->first();
+        $educations = TypeQualification::where('name', 'education')->first();
 
-        $works = TypeQualification::where('name' ,'work')->first();
-        $educations = TypeQualification::where('name' ,'education')->first();
+        $services = Service::all();
+        $portfolios = Portfolio::all();
+        $testimonials = Portfolio::select('client_id', 'feedback', 'rating')->get();
+
 
 
         $companyCount = Qualification::companyCount();
@@ -48,6 +53,10 @@ class LandingPageController extends Controller
 
                 'works',
                 'educations',
+
+                'services',
+                'portfolios',
+                'testimonials'
             )
         )->with('companyCount', $companyCount);
     }

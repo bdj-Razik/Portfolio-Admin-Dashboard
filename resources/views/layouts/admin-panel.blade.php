@@ -110,6 +110,5 @@
 
     <script src="{{ asset('vendors/js/script-livewire.js') }}"> </script>
 
-
     @yield('script-page')
 @endpush

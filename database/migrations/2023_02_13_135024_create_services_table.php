@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 55)->unique();
             $table->longText('description')->nullable();
+            $table->string('icon', 55)->nullable();
             $table->string('image', 55)->nullable();
             $table->timestamps();
             $table->softDeletes();

@@ -44,10 +44,10 @@ class ContactMeController extends Controller
         //
 
         $request->validate([
-            'title' => 'required|string|155',
-            'name' => 'required|string|55',
+            'title' => 'required|string|max:155',
+            'name' => 'required|string|max:55',
             'email' => 'required|email',
-            'description' => 'required|string|255',
+            'description' => 'required|string|max:255',
 
         ]);
 
@@ -70,7 +70,7 @@ class ContactMeController extends Controller
 
             Alert::toast('Your mail has been sent successfuly', 'success');
 
-            return back()->withInput();
+            return back();
 
         } catch (\Throwable$th) {
 

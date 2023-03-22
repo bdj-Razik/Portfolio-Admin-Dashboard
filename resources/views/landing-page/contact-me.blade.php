@@ -31,30 +31,32 @@
                   </div>
               </div>
 
-              <form action="" class="contact_form grid">
+              <form action="{{ route('contactMe') }}" method="POST" class="contact_form grid">
+                  @csrf
                   <div class="contact_inputs grid">
                       <div class="contact_content">
-                          <label for="" class="contact_label">Name</label>
-                          <input type="text" class="contact_input">
+                          <label for="name" class="contact_label">Name</label>
+                          <input type="text" name="name" class="contact_input" required>
                       </div>
                       <div class="contact_content">
-                          <label for="" class="contact_label">Email</label>
-                          <input type="email" class="contact_input">
+                          <label for="email" class="contact_label">Email</label>
+                          <input type="email" name="email" class="contact_input" required>
                       </div>
                   </div>
                   <div class="contact_content">
-                      <label for="" class="contact_label">Project</label>
-                      <input type="tetx" class="contact_input">
+                      <label for="title" class="contact_label">Project</label>
+                      <input type="text" name="title" class="contact_input" required>
                   </div>
                   <div class="contact_content">
-                      <label for="" class="contact_label">Project description</label>
-                      <textarea name="" id="" cols="0" rows="7" class="contact_input"></textarea>
+                      <label for="description" class="contact_label">Project description</label>
+                      <textarea name="description" cols="0" rows="7" class="contact_input" required></textarea>
                   </div>
+
                   <div>
-                      <a href="#" class="button button--flex">
+                      <button type="submit" class="button button--flex" style="border: none;font-size: 18px">
                           Send Message
                           <i class="uil uil-message button_icon"></i>
-                      </a>
+                      </button>
                   </div>
               </form>
           </div>
