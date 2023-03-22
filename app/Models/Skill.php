@@ -21,7 +21,6 @@ class Skill extends Model
 
     public function category()
     {
-
         return $this->belongsTo(CategorySkill::class, 'skill_category_id');
     }
 }

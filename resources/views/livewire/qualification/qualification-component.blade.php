@@ -29,7 +29,7 @@
                     <tr>
                         <th>{{ $loop->iteration }}</th>
                         <td>{{ $row->title }}</td>
-                        <td>{{ $row->company_or_institue }} %</td>
+                        <td>{{ $row->company_or_institue }}</td>
 
 
                         <td>{{ $row->start_date . '-' . $row->end_date }}</td>

@@ -19,127 +19,99 @@
                     <div class="qualification_sections">
                         <!--========== QUALIFICATION CONTENT 1 ==========-->
                         <div class="qualification_content qualification_active" data-content id="education">
-                            <!--============= QUALIFICATION 1 ===========-->
-                            <div class="qualification_data">
-                                <div>
-                                    <h3 class="qualification_title">Computer Science</h3>
-                                    <span class="qualification_subtitle">Germany-University</span>
-                                    <div class="qualificaation_calender">
-                                        <i class="uil uil-calender-alt"></i>
-                                        2009 - 2014
+
+                            @foreach ($educations->qualifications as $row)
+                                @if ($loop->iteration % 2 == 0)
+                                    <div class="qualification_data">
+                                        <div></div>
+                                        <div>
+                                            <span class="qualification_rounder"></span>
+                                            @if ($loop->iteration != $loop->last)
+                                                <span class="qualification_line"></span>
+                                            @endif
+                                        </div>
+                                        <div>
+                                            <h3 class="qualification_title">{{ $row->title }}</h3>
+                                            <span class="qualification_subtitle">{{ $row->company_or_institue }} -
+                                                {{ $row->location }}</span>
+                                            <div class="qualificaation_calender">
+                                                <i class="uil uil-calender-alt"></i>
+                                                {{ \Carbon\Carbon::parse($row->start_date)->format('Y-m') }}
+                                                -
+                                                {{ \Carbon\Carbon::parse($row->end_date)->format('Y-m') }}
+                                            </div>
+                                        </div>
+
                                     </div>
-                                </div>
-                                <div>
-                                    <span class="qualification_rounder"></span>
-                                    <span class="qualification_line"></span>
-                                </div>
-                            </div>
-                            <!--============= QUALIFICATION 2 ===========-->
-                            <div class="qualification_data">
-                                <div></div>
-
-                                <div>
-                                    <span class="qualification_rounder"></span>
-                                    <span class="qualification_line"></span>
-                                </div>
-
-                                <div>
-                                    <h3 class="qualification_title">Web Design</h3>
-                                    <span class="qualification_subtitle">Germany-Institute</span>
-                                    <div class="qualificaation_calender">
-                                        <i class="uil uil-calender-alt"></i>
-                                        2014 - 2017
+                                @else
+                                    <div class="qualification_data">
+                                        <div>
+                                            <h3 class="qualification_title">{{ $row->title }}</h3>
+                                            <span class="qualification_subtitle">{{ $row->company_or_institue }} -
+                                                {{ $row->location }}</span>
+                                            <div class="qualificaation_calender">
+                                                <i class="uil uil-calender-alt"></i>
+                                                {{ \Carbon\Carbon::parse($row->start_date)->format('Y-m') }}
+                                                -
+                                                {{ \Carbon\Carbon::parse($row->end_date)->format('Y-m') }}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="qualification_rounder"></span>
+                                            <span class="qualification_line"></span>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
+                            @endforeach
 
-                            </div>
-                            <!--============= QUALIFICATION 3 ===========-->
-                            <div class="qualification_data">
-                                <div>
-                                    <h3 class="qualification_title">Web Development</h3>
-                                    <span class="qualification_subtitle">Germany-Institute</span>
-                                    <div class="qualificaation_calender">
-                                        <i class="uil uil-calender-alt"></i>
-                                        2017 - 2019
-                                    </div>
-                                </div>
-                                <div>
-                                    <span class="qualification_rounder"></span>
-                                    <span class="qualification_line"></span>
-                                </div>
-                            </div>
-                            <!--============= QUALIFICATION 4 ===========-->
-                            <div class="qualification_data">
-                                <div></div>
 
-                                <div>
-                                    <span class="qualification_rounder"></span>
-                                    <!--<span class="qualification_line"></span>-->
-                                </div>
-
-                                <div>
-                                    <h3 class="qualification_title">Master in UI/UX</h3>
-                                    <span class="qualification_subtitle">Germany-Institute</span>
-                                    <div class="qualificaation_calender">
-                                        <i class="uil uil-calender-alt"></i>
-                                        2019 - 2021
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
                         <!--========== QUALIFICATION CONTENT 2 ==========-->
                         <div class="qualification_content" data-content id="work">
-                            <!--============= QUALIFICATION 1 ===========-->
-                            <div class="qualification_data">
-                                <div>
-                                    <h3 class="qualification_title">Software Enginner</h3>
-                                    <span class="qualification_subtitle">Apple Inc - Germany</span>
-                                    <div class="qualificaation_calender">
-                                        <i class="uil uil-calender-alt"></i>
-                                        2016 - 2018
+
+                            @foreach ($works->qualifications as $row)
+                                @if ($loop->iteration % 2 == 0)
+                                    <div class="qualification_data">
+                                        <div>
+                                            <h3 class="qualification_title">{{ $row->title }}</h3>
+                                            <span class="qualification_subtitle">{{ $row->company_or_institue }} -
+                                                {{ $row->location }}</span>
+                                            <div class="qualificaation_calender">
+                                                <i class="uil uil-calender-alt"></i>
+                                                {{ \Carbon\Carbon::parse($row->start_date)->format('Y-m') }}
+                                                -
+                                                {{ \Carbon\Carbon::parse($row->end_date)->format('Y-m') }}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="qualification_rounder"></span>
+                                            <span class="qualification_line"></span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <span class="qualification_rounder"></span>
-                                    <span class="qualification_line"></span>
-                                </div>
-                            </div>
-                            <!--============= QUALIFICATION 2 ===========-->
-                            <div class="qualification_data">
-                                <div></div>
+                                @else
+                                    <div class="qualification_data">
+                                        <div></div>
+                                        <div>
+                                            <span class="qualification_rounder"></span>
+                                            @if ($loop->iteration != $loop->last)
+                                                <span class="qualification_line"></span>
+                                            @endif
+                                        </div>
+                                        <div>
+                                            <h3 class="qualification_title">{{ $row->title }}</h3>
+                                            <span class="qualification_subtitle">{{ $row->company_or_institue }} -
+                                                {{ $row->location }}</span>
+                                            <div class="qualificaation_calender">
+                                                <i class="uil uil-calender-alt"></i>
+                                                {{ \Carbon\Carbon::parse($row->start_date)->format('Y-m') }}
+                                                -
+                                                {{ \Carbon\Carbon::parse($row->end_date)->format('Y-m') }}
+                                            </div>
+                                        </div>
 
-                                <div>
-                                    <span class="qualification_rounder"></span>
-                                    <span class="qualification_line"></span>
-                                </div>
-
-                                <div>
-                                    <h3 class="qualification_title">Frontend Developer</h3>
-                                    <span class="qualification_subtitle">Apple Inc - Germany</span>
-                                    <div class="qualificaation_calender">
-                                        <i class="uil uil-calender-alt"></i>
-                                        2018 - 2020
                                     </div>
-                                </div>
-
-                            </div>
-                            <!--============= QUALIFICATION 3 ===========-->
-                            <div class="qualification_data">
-                                <div>
-                                    <h3 class="qualification_title">Ui Designer</h3>
-                                    <span class="qualification_subtitle">Figma - Germany</span>
-                                    <div class="qualificaation_calender">
-                                        <i class="uil uil-calender-alt"></i>
-                                        2017 - 2019
-                                    </div>
-                                </div>
-                                <div>
-                                    <span class="qualification_rounder"></span>
-                                    <!--<span class="qualification_line"></span>-->
-                                </div>
-                            </div>
-
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 </div>

@@ -17,4 +17,9 @@ class TypeQualification extends Model
         'name',
     ];
 
+    public function qualifications()
+    {
+        return $this->hasMany(Qualification::class, 'type_qualification_id');
+    }
+
 }

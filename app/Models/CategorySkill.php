@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CategorySkill extends Model
 {
-    use HasFactory , SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'category_skills';
     public $timestamps = true;
@@ -18,4 +18,9 @@ class CategorySkill extends Model
         'experience',
         'icone',
     ];
+
+    public function skills()
+    {
+        return $this->hasMany(Skill::class, 'skill_category_id');
+    }
 }
