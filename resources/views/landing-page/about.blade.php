@@ -11,20 +11,20 @@
                             {{ $aboutsUs->description
                                 ? $aboutsUs->description
                                 : 'FullStack Web developer, with extencive knowledge and years of experience,
-                                                                                                                                                                                                                                                                                        working in web technologies and UI/UX design, delivering quality work.' }}
+                                                                                                                                                                                                                                                                                                                    working in web technologies and UI/UX design, delivering quality work.' }}
 
                         </p>
                         <div class="about_info">
                             <div>
-                                <span class="about_info-title">{{ $aboutsUs->experience - 1 }}+</span>
+                                <span class="about_info-title">{{ $aboutsUs->experience }}+</span>
                                 <span class="about_info-name">Years <br>experience</span>
                             </div>
                             <div>
-                                <span class="about_info-title">{{ $projects->count() - 1 }}+</span>
+                                <span class="about_info-title">{{ $projects->count() }}+</span>
                                 <span class="about_info-name">Completed <br>project</span>
                             </div>
                             <div>
-                                <span class="about_info-title">{{ $companyCount - 1 }}+</span>
+                                <span class="about_info-title">{{ $companyCount }}+</span>
                                 <span class="about_info-name">Companies <br>worked</span>
                             </div>
                         </div>
