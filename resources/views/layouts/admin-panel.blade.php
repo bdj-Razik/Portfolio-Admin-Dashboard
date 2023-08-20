@@ -52,7 +52,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; {{ Config::get('app.name') }}</span>
                     </div>
                 </div>
             </footer>
@@ -108,7 +108,7 @@
 
     @include('sweetalert::alert')
 
-    <script src="{{ asset('vendors/js/script-livewire.js') }}"> </script>
+    <script src="{{ asset('vendors/js/script-livewire.js') }}"></script>
 
     @yield('script-page')
 @endpush

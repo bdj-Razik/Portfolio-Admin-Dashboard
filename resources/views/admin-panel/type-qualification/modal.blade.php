@@ -95,7 +95,6 @@
 
 
                     <div class="form-row">
-
                         <div class="col-12 mb-3">
                             <label for="name" class="form-label">Type Qualification</label>
                             <input type="text" class="form-control @error('name')  is-invalid  @enderror"
@@ -107,17 +106,11 @@
                             @enderror
                         </div>
 
-
                         <div class="col-12">
                             <h6>Are you sure you want to delete</h6>
                         </div>
 
-
-
                     </div>
-
-
-
                 </div>
 
                 <div class="modal-footer">
