@@ -69,7 +69,7 @@
 
 ###
 
-<p align="left">-> email:admin@admin.com & password : password </p>
+<p align="left">-> email : admin@admin.com & password : password </p>
 
 ###
 
