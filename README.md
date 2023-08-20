@@ -67,6 +67,12 @@
 
 ###
 
+###
+
+<p align="left">-> email:admin@admin.com & password : password </p>
+
+###
+
 <h3 align="left">Images App</h3>
 
 ###
